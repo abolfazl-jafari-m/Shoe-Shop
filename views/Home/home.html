@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../public/style.css">
+    <title>Shoea</title>
+</head>
+<body>
+<header class="flex flex-col w-full gap-1">
+    <div class="flex justify-between items-center px-6 py-4">
+        <div class="flex gap-4 items-center">
+            <div class="rounded-full overflow-hidden bg-black w-12">
+                <img src="../../public/assets/Images/profile.png" alt="profile" class="w-full">
+            </div>
+            <div class="flex flex-col gap-1 ">
+                <span class="text-[#757475]">Good Morning<span>👋</span></span>
+                <span class="text-[#152536] font-semibold">Saeed Abdilar</span>
+            </div>
+        </div>
+        <div class="flex gap-4 items-center">
+            <button>
+                <img src="../../public/assets/Images/ring.svg" alt="ring" class="w-6">
+            </button>
+            <button>
+                <img src="../../public/assets/Images/heart.svg" alt="ring" class="w-6">
+            </button>
+        </div>
+    </div>
+    <div class="flex gap-1 items-center rounded-lg bg-[#FAFAFA] mx-6 my-2 px-3 py-2.5">
+        <img src="../../public/assets/Images/search.svg" alt="search" class="w-4">
+        <input type="text" placeholder="Search" class="border-0 outline-0 bg-transparent ">
+    </div>
+    <div class="grid px-6 my-3 grid-cols-4 grid-rows-2 gap-x-12 gap-y-7 justify-items-center">
+        <div class="flex-col flex items-center gap-3">
+            <div class="bg-[#ECECEC] rounded-full p-4 w-[60px] h-[60px] flex items-center justify-center">
+                <img src="../../public/assets/Images/nike.png" alt="nike" class="w-full">
+            </div>
+            <span class="font-semibold text-sm text-[#152536] ">Nike</span>
+        </div>
+        <div class="flex-col flex items-center gap-3">
+            <div class="bg-[#ECECEC] rounded-full p-4 w-[60px] h-[60px] flex items-center justify-center">
+                <img src="../../public/assets/Images/addidas.png" alt="adidas" class="w-full">
+            </div>
+            <span class="font-semibold text-sm text-[#152536] ">Adidas</span>
+        </div>
+        <div class="flex-col flex items-center gap-3">
+            <div class="bg-[#ECECEC] rounded-full p-4 w-[60px] h-[60px] flex items-center justify-center">
+                <img src="../../public/assets/Images/puma.png" alt="puma" class="w-full">
+            </div>
+            <span class="font-semibold text-sm text-[#152536] ">Puma</span>
+        </div>
+        <div class="flex-col flex items-center gap-3">
+            <div class="bg-[#ECECEC] rounded-full p-4 w-[60px] h-[60px] flex items-center justify-center">
+                <img src="../../public/assets/Images/asics.png" alt="asics" class="w-full">
+            </div>
+            <span class="font-semibold text-sm text-[#152536] ">Asics</span>
+        </div>
+        <div class="flex-col flex items-center gap-3">
+            <div class="bg-[#ECECEC] rounded-full p-4 w-[60px] h-[60px] flex items-center justify-center">
+                <img src="../../public/assets/Images/reebok.png" alt="reebok" class="w-full">
+            </div>
+            <span class="font-semibold text-sm text-[#152536] ">Reebok</span>
+        </div>
+        <div class="flex-col flex items-center gap-3">
+            <div class="bg-[#ECECEC] rounded-full p-4 w-[60px] h-[60px] flex items-center justify-center">
+                <img src="../../public/assets/Images/newbalance.png" alt="newbalance" class="w-full">
+            </div>
+            <span class="font-semibold text-sm text-[#152536] line-clamp-1 ">New Balance</span>
+        </div>
+        <div class="flex-col flex items-center gap-3">
+            <div class="bg-[#ECECEC] rounded-full p-4 w-[60px] h-[60px] flex items-center justify-center">
+                <img src="../../public/assets/Images/convece.png" alt="Converse" class="w-full">
+            </div>
+            <span class="font-semibold text-sm text-[#152536] ">Converse</span>
+        </div>
+        <div class="flex-col flex items-center gap-3">
+            <div class="bg-[#ECECEC] rounded-full p-4 w-[60px] h-[60px] flex items-center justify-center">
+                <img src="../../public/assets/Images/more.png" alt="more" class="w-full">
+            </div>
+            <span class="font-semibold text-sm text-[#152536] ">More</span>
+        </div>
+
+    </div>
+</header>
+<main class="flex flex-col gap-5  my-4">
+    <div class="flex justify-between items-center px-6 text-[#152536] font-semibold">
+        <h3 class=" text-xl">Most Popular</h3>
+        <button>See All</button>
+    </div>
+    <div class="flex items-center gap-3 px-6 overflow-x-scroll py-0.5 no-scrollbar">
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold">All</button>
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold">Nike</button>
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold">Adidas</button>
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold">Puma</button>
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold">Asics</button>
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold">Reebok</button>
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold text-nowrap">New Balance</button>
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold">Converse</button>
+    </div>
+    <div class="px-6 grid grid-cols-2 gap-4">
+        <div class="flex flex-col items-center gap-3">
+            <div class="rounded-xl flex items-center justify-center p-3 bg-[#F3F3F3] ">
+                <img src="../../public/assets/Images/product-1.png" alt="product" class="w-full">
+            </div>
+            <div class="flex flex-col gap-2 px-1">
+                <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">K-Swiss ista Train...</h4>
+                <span class="text-[#152536] font-semibold">$ 85.00</span>
+            </div>
+        </div>
+        <div class="flex flex-col items-center gap-3">
+            <div class="rounded-xl flex items-center justify-center p-3 bg-[#F3F3F3] ">
+                <img src="../../public/assets/Images/product-2.png" alt="product" class="w-full">
+            </div>
+            <div class="flex flex-col gap-2 px-1">
+                <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">K-Swiss ista Train...</h4>
+                <span class="text-[#152536] font-semibold">$ 85.00</span>
+            </div>
+        </div>
+        <div class="flex flex-col items-center gap-3">
+            <div class="rounded-xl flex items-center justify-center p-3 bg-[#F3F3F3] ">
+                <img src="../../public/assets/Images/product-1.png" alt="product" class="w-full">
+            </div>
+            <div class="flex flex-col gap-2 px-1">
+                <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">K-Swiss ista Train...</h4>
+                <span class="text-[#152536] font-semibold">$ 85.00</span>
+            </div>
+        </div>
+        <div class="flex flex-col items-center gap-3">
+            <div class="rounded-xl flex items-center justify-center p-3 bg-[#F3F3F3] ">
+                <img src="../../public/assets/Images/product-2.png" alt="product" class="w-full">
+            </div>
+            <div class="flex flex-col gap-2 px-1">
+                <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">K-Swiss ista Train...</h4>
+                <span class="text-[#152536] font-semibold">$ 85.00</span>
+            </div>
+        </div>
+        <div class="flex flex-col items-center gap-3">
+            <div class="rounded-xl flex items-center justify-center p-3 bg-[#F3F3F3] ">
+                <img src="../../public/assets/Images/product-1.png" alt="product" class="w-full">
+            </div>
+            <div class="flex flex-col gap-2 px-1">
+                <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">K-Swiss ista Train...</h4>
+                <span class="text-[#152536] font-semibold">$ 85.00</span>
+            </div>
+        </div>
+        <div class="flex flex-col items-center gap-3">
+            <div class="rounded-xl flex items-center justify-center p-3 bg-[#F3F3F3] ">
+                <img src="../../public/assets/Images/product-2.png" alt="product" class="w-full">
+            </div>
+            <div class="flex flex-col gap-2 px-1">
+                <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">K-Swiss ista Train...</h4>
+                <span class="text-[#152536] font-semibold">$ 85.00</span>
+            </div>
+        </div>
+        <div class="flex flex-col items-center gap-3">
+            <div class="rounded-xl flex items-center justify-center p-3 bg-[#F3F3F3] ">
+                <img src="../../public/assets/Images/product-1.png" alt="product" class="w-full">
+            </div>
+            <div class="flex flex-col gap-2 px-1">
+                <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">K-Swiss ista Train...</h4>
+                <span class="text-[#152536] font-semibold">$ 85.00</span>
+            </div>
+        </div>
+        <div class="flex flex-col items-center gap-3">
+            <div class="rounded-xl flex items-center justify-center p-3 bg-[#F3F3F3] ">
+                <img src="../../public/assets/Images/product-2.png" alt="product" class="w-full">
+            </div>
+            <div class="flex flex-col gap-2 px-1">
+                <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">K-Swiss ista Train...</h4>
+                <span class="text-[#152536] font-semibold">$ 85.00</span>
+            </div>
+        </div>
+        <div class="flex flex-col items-center gap-3">
+            <div class="rounded-xl flex items-center justify-center p-3 bg-[#F3F3F3] ">
+                <img src="../../public/assets/Images/product-1.png" alt="product" class="w-full">
+            </div>
+            <div class="flex flex-col gap-2 px-1">
+                <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">K-Swiss ista Train...</h4>
+                <span class="text-[#152536] font-semibold">$ 85.00</span>
+            </div>
+        </div>
+        <div class="flex flex-col items-center gap-3">
+            <div class="rounded-xl flex items-center justify-center p-3 bg-[#F3F3F3] ">
+                <img src="../../public/assets/Images/product-2.png" alt="product" class="w-full">
+            </div>
+            <div class="flex flex-col gap-2 px-1">
+                <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">K-Swiss ista Train...</h4>
+                <span class="text-[#152536] font-semibold">$ 85.00</span>
+            </div>
+        </div>
+    </div>
+
+</main>
+<nav class="fixed bottom-0 w-full left-0 px-1 py-2 z-40 flex items-center justify-evenly bg-stone-700/60 text-white/70">
+    <div class="flex flex-col items-center gap-1">
+        <img src="../../public/assets/Images/house-door-fill.png" class="w-6" alt="home">
+        <span class="tracking-tight text-xs text-center">Home</span>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+        <img src="../../public/assets/Images/cart2.svg" class="w-6" alt="cart">
+        <span class="tracking-tight text-xs text-center">Card</span>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+        <img src="../../public/assets/Images/bag.svg" class="w-6" alt="order">
+        <span class="tracking-tight text-xs text-center">Order</span>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+        <img src="../../public/assets/Images/wallet2.svg" class="w-6" alt="wallet">
+        <span class="tracking-tight text-xs text-center">Wallet</span>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+        <img src="../../public/assets/Images/person.svg" class="w-6" alt="profile">
+        <span class="tracking-tight text-xs text-center">Profile</span>
+    </div>
+</nav>
+</body>
+</html>
