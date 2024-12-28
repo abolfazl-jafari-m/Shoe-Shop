@@ -6,8 +6,48 @@
     .no-scrollbar::-webkit-scrollbar {
         display: none;
     }
+
     .no-scrollbar {
         -ms-overflow-style: none;
         scrollbar-width: none;
     }
+}
+
+@layer base {
+    @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url("../public/assets/Fonts/Inter-Black.otf");
+    }@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../public/assets/Fonts/Inter-Light.otf");
+}
+    @font-face {
+        font-family: 'Inter';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("../public/assets/Fonts/Inter-SemiBold.otf");
+    }@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../public/assets/Fonts/Inter-Bold.otf");
+}@font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url("../public/assets/Fonts/Inter-ExtraBold.otf");
+}
+}
+
+* {
+    font-family: Inter, sans-serif;
 }
