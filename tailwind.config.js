@@ -6,7 +6,11 @@ module.exports = {
         './src/**/*.{html,js}'
     ],
     theme: {
-        extend: {},
+        extend: {
+            backgroundImage : {
+                "onboard-bg" :"url('/public/assets/Images/onboarding-wall.png')"
+            }
+        },
     },
     plugins: [],
 }
