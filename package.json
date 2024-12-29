@@ -4,5 +4,8 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "tailwindcss-motion": "^1.0.0"
   }
 }

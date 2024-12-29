@@ -9,9 +9,9 @@ module.exports = {
         extend: {
             backgroundImage : {
                 "onboard-bg" :"url('/public/assets/Images/onboarding-wall.png')"
-            }
+            },
         },
     },
-    plugins: [],
+    plugins: [require('tailwindcss-motion')],
 }
 
