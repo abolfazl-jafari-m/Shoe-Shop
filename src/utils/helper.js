@@ -1,6 +1,10 @@
 export function setAuthTokenInLocalStorage(token) {
     localStorage.setItem('token', JSON.stringify(token));
 }
+export function getAuthToken(){
+    return JSON.parse(localStorage.getItem("token"));
+}
+
 
 
 export function validate(rules, inputMessage) {

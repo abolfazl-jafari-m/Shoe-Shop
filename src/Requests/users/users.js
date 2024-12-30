@@ -1,4 +1,5 @@
 import {API_KEY, API_URL} from "../../../configs.js";
+import {getAuthToken} from "../../utils/helper.js";
 
 export async function login(email, password) {
     try{
@@ -18,5 +19,24 @@ export async function login(email, password) {
     }catch (e){
         console.log(e)
     }
+}
 
+export async function getUser(){
+    try {
+        const response = await fetch(`${API_URL}/api/users/me` ,{
+            method : "GET",
+            headers : {
+                "Content-Type" : "application/json",
+                "api_key" : API_KEY,
+                "Authorization" : `Bearer ${getAuthToken()}`
+            }
+        })
+        if (!response.ok){
+            throw new Error("user not found")
+        }
+        const result = await response.json();
+        return result.email;
+    }catch (e){
+        console.log(e)
+    }
 }
