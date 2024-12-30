@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./style.css">
+  <title>Orders</title>
+</head>
+<body>
+<div class="w-full flex flex-col items-center">
+  <div class="flex justify-between px-6 py-3 w-full">
+    <div class="flex items-center gap-3">
+      <img src="./assets/Images/logo-black.png" class="w-6 " alt="logo">
+      <h2 class="text-2xl font-bold tracking-tight">My Order</h2>
+    </div>
+    <div class="flex gap-3 items-center">
+      <button><img src="./assets/Images/search.svg" class="w-6" alt="search"></button>
+      <button><img src="./assets/Images/more-circle-svgrepo-com.svg" class="w-6" alt="more"></button>
+    </div>
+  </div>
+  <div class="flex flex-col w-full px-6 mt-4 ">
+    <div class="flex justify-center ">
+      <button class="border-black border-b-2 text-center font-semibold text-lg w-1/2">Active</button>
+      <button class="border-black border-b-2 text-center font-semibold text-lg w-1/2 disabled:text-gray-400 disabled:border-b-gray-400" disabled>Complete</button>
+    </div>
+    <div class="bg-gray-200/70 w-full  rounded-md my-2 hidden ">
+      <div class=" flex-col p-2 gap-4 w-full flex">
+        <div class="rounded-lg shadow-black/50 shadow-md p-4 w-full flex gap-2 items-center bg-white">
+          <div class="h-full rounded-2xl bg-[#f3f3f3] p-1 flex items-center justify-center">
+            <img src="./assets/Images/product-1.png" alt="product" class="">
+          </div>
+          <div class="flex flex-col gap-2 flex-1 h-full">
+            <h3 class="font-semibold">Air Jordan Pro</h3>
+            <div class="flex items-center gap-2 text-xs tracking-tight ">
+              <div class="flex items-center gap-2"> <span class="bg-black rounded-full w-4 h-4"></span>  Black</div> |
+              <div > size <span class="ml-1"> 42</span> </div> |
+              <div>  Qty<span class="ml-1"> 1</span> </div>
+            </div>
+            <div class="text-xs tracking-tight font-extralight bg-gray-300 rounded-lg text-center w-fit p-2"> in Delivery </div>
+            <div class="flex justify-between items-center w-full">
+              <span>105.00$</span>
+              <button class="rounded-2xl py-1 px-3 text-center bg-black text-white text-sm">Track Order</button>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-lg shadow-black/50 shadow-md p-4 w-full flex gap-2 items-center bg-white">
+          <div class="h-full rounded-xl bg-[#f3f3f3] p- flex items-center justify-center">
+            <img src="./assets/Images/product-1.png" alt="product" class="h-full">
+          </div>
+          <div class="flex flex-col gap-2 flex-1 h-full">
+            <h3 class="font-semibold">Air Jordan Pro</h3>
+            <div class="flex items-center gap-2 text-xs tracking-tight ">
+              <div class="flex items-center gap-2"> <span class="bg-black rounded-full w-4 h-4"></span>  Black</div> |
+              <div > size <span class="ml-1"> 42</span> </div> |
+              <div>  Qty<span class="ml-1"> 1</span> </div>
+            </div>
+            <div class="text-xs tracking-tight font-extralight bg-gray-300 rounded-lg text-center w-fit p-2"> in Delivery </div>
+            <div class="flex justify-between items-center w-full">
+              <span>105.00$</span>
+              <button class="rounded-2xl py-1 px-3 text-center bg-black text-white text-sm">Track Order</button>
+            </div>
+          </div>
+        </div>
+        <div class="rounded-lg shadow-black/50 shadow-md p-4 w-full flex gap-2 items-center bg-white">
+          <div class="h-full rounded-xl bg-[#f3f3f3] p- flex items-center justify-center">
+            <img src="./assets/Images/product-1.png" alt="product" class="h-full">
+          </div>
+          <div class="flex flex-col gap-2 flex-1 h-full">
+            <h3 class="font-semibold">Air Jordan Pro</h3>
+            <div class="flex items-center gap-2 text-xs tracking-tight ">
+              <div class="flex items-center gap-2"> <span class="bg-black rounded-full w-4 h-4"></span>  Black</div> |
+              <div > size <span class="ml-1"> 42</span> </div> |
+              <div>  Qty<span class="ml-1"> 1</span> </div>
+            </div>
+            <div class="text-xs tracking-tight font-extralight bg-gray-300 rounded-lg text-center w-fit p-2"> in Delivery </div>
+            <div class="flex justify-between items-center w-full">
+              <span>105.00$</span>
+              <button class="rounded-2xl py-1 px-3 text-center bg-black text-white text-sm">Track Order</button>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="flex items-center justify-center w-full">
+      <div class="flex flex-col items-center px-6 py-3">
+        <img src="./assets/Images/Doc.png" alt="empty"  class="w-full">
+        <h3 class="text-xl font-semibold text-center ">You Have not an Order Yet</h3>
+        <p class="opacity-70 font-semibold text-center w-full ">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<nav class="fixed bottom-0 w-full left-0 px-1 py-2 z-40 flex items-center justify-evenly bg-white text-black">
+  <a href="/public/home.html">
+    <div class="flex flex-col items-center gap-1">
+      <img src="./assets/Images/home.png" class="w-6" alt="home">
+      <span class="tracking-tight text-xs text-center">Home</span>
+    </div>
+  </a>
+  <a href="/public/cart.html">
+    <div class="flex flex-col items-center gap-1">
+      <img src="./assets/Images/cart2.svg" class="w-6" alt="cart">
+      <span class="tracking-tight text-xs text-center">Cart</span>
+    </div>
+  </a>
+  <a href="/public/orders.html">
+    <div class="flex flex-col items-center gap-1">
+      <img src="./assets/Images/order-select.png" class="w-6" alt="order">
+      <span class="tracking-tight text-xs text-center">Order</span>
+    </div>
+  </a>
+  <a href="#">
+    <div class="flex flex-col items-center gap-1">
+      <img src="./assets/Images/wallet2.svg" class="w-6" alt="wallet">
+      <span class="tracking-tight text-xs text-center">Wallet</span>
+    </div>
+  </a>
+  <a href="#">
+    <div class="flex flex-col items-center gap-1">
+      <img src="./assets/Images/person.svg" class="w-6" alt="profile">
+      <span class="tracking-tight text-xs text-center">Profile</span>
+    </div>
+  </a>
+</nav>
+
+</body>
+</html>

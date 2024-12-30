@@ -30,13 +30,13 @@
     @font-face {
         font-family: 'Inter';
         font-style: normal;
-        font-weight: 600;
+        font-weight: 700;
         font-display: swap;
         src: url("../public/assets/Fonts/Inter-SemiBold.otf");
     }@font-face {
     font-family: 'Inter';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 800;
     font-display: swap;
     src: url("../public/assets/Fonts/Inter-Bold.otf");
 }@font-face {
