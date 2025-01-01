@@ -35,7 +35,7 @@ export async function getProductsByFilter(key, value) {
 
 export async function getProductById(id){
     try{
-        const response = await fetch(`${API_URL}/api/records/product/${id}` , {
+        const response = await fetch(`${API_URL}/api/records/products/${id}` , {
             method : "GET",
             headers : headers
         })

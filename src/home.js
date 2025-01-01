@@ -6,24 +6,16 @@ const username = document.getElementById('username');
 const loading = document.getElementById("loading");
 const wishList = document.getElementById("wishList");
 const search = document.getElementById('search');
-const contents = document.getElementById("content");
+
 const searchBox = document.getElementById("searchBox")
 const productsBox = document.getElementById("products-box");
 const filtersBtn = document.getElementById("filtersBtn").children;
 
 
 search.onfocus = () => {
-    contents.classList.remove("flex");
-    contents.classList.add("hidden");
-    searchBox.classList.add("flex");
-    searchBox.classList.remove("hidden");
+   window.location.href= "/public/search.html";
 }
-search.addEventListener("focusout", () => {
-    contents.classList.add("flex");
-    contents.classList.remove("hidden");
-    searchBox.classList.remove("flex");
-    searchBox.classList.add("hidden");
-})
+
 
 wishList.onclick = () => {
     window.location.href = "/public/products/wishList.html";
@@ -40,8 +32,7 @@ for (const btn of filtersBtn) {
     })
 }
 
-
-export function fillerByBrand(brand) {
+function fillerByBrand(brand) {
     brand = (brand !== "All") ? brand : "";
     loading.classList.remove("hidden")
     loading.classList.add("flex");
@@ -70,6 +61,7 @@ export function fillerByBrand(brand) {
         loading.classList.remove("flex");
     })
 }
+
 
 function render() {
     loading.classList.remove("hidden");
