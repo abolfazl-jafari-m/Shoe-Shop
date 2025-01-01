@@ -9,51 +9,51 @@
     <title>Cart</title>
 </head>
 <body>
-<div class="w-full flex flex-col items-center">
-    <div class="flex justify-between px-6 py-3 w-full">
+<div class="flex flex-col items-center w-full">
+    <div class="flex justify-between w-full px-6 py-3">
         <div class="flex items-center gap-3">
             <img src="./assets/Images/logo-black.png" class="w-6 " alt="logo">
             <h2 class="text-2xl font-bold tracking-tight">My Cart</h2>
         </div>
-        <div class="flex gap-3 items-center">
+        <div class="flex items-center gap-3">
             <button><img src="./assets/Images/search.svg" class="w-6" alt="search"></button>
         </div>
     </div>
     <div class="flex flex-col w-full px-4 ">
-        <div class="bg-gray-200/40 w-full  rounded-md my-2 ">
-            <div class=" flex-col p-3 gap-4 w-full flex">
-                <div class="rounded-2xl  flex gap-2 bg-white items-center py-2 px-4 relative">
+        <div class="w-full my-2 rounded-md bg-gray-200/40 ">
+            <div class="flex flex-col w-full gap-4 p-3 ">
+                <div class="relative flex items-center gap-2 px-4 py-2 bg-white rounded-2xl">
                     <div class="rounded-3xl bg-[#f3f3f3]  flex items-center justify-center p-1">
                         <img src="./assets/Images/product-1.png" alt="product" class="w-28">
                     </div>
-                    <div class="flex flex-col gap-6 flex-1 h-full px-3 py-2">
-                        <h3 class="font-semibold text-xl">Air Jordan Pro</h3>
+                    <div class="flex flex-col flex-1 h-full gap-6 px-3 py-2">
+                        <h3 class="text-xl font-semibold">Air Jordan Pro</h3>
                         <div class="flex items-center gap-2 text-xs tracking-tight ">
-                            <div class="flex items-center gap-2"><span class="bg-black rounded-full w-4 h-4"></span>
+                            <div class="flex items-center gap-2"><span class="w-4 h-4 bg-black rounded-full"></span>
                                 Black
                             </div>
                             |
                             <div> size <span class="ml-1"> 42</span></div>
                         </div>
-                        <div class="flex justify-between items-center w-full ">
+                        <div class="flex items-center justify-between w-full ">
                             <span>105.00$</span>
-                            <div class="bg-gray-200/80 rounded-3xl py-1 px-5 flex items-center gap-2 font-light">
+                            <div class="flex items-center gap-2 px-5 py-1 font-light bg-gray-200/80 rounded-3xl">
                                 <button class="text-xl">-</button>
                                 <span>3</span>
                                 <button class="text-xl">+</button>
                             </div>
                         </div>
                     </div>
-                    <span class="absolute top-5 right-4 w-4"><img src="./assets/Images/delete-o-svgrepo-com.svg"
+                    <span class="absolute w-4 top-5 right-4"><img src="./assets/Images/delete-o-svgrepo-com.svg"
                                                                   alt="delete" class="w-full"></span>
                 </div>
             </div>
         </div>
-        <div class="hidden items-center justify-center w-full">
+        <div class="items-center justify-center hidden w-full">
             <div class="flex flex-col items-center px-6 py-3">
                 <img src="./assets/Images/Doc.png" alt="empty" class="w-full">
                 <h3 class="text-xl font-semibold text-center ">You Have not an Order Yet</h3>
-                <p class="opacity-70 font-semibold text-center w-full ">Lorem ipsum dolor sit amet, consectetur
+                <p class="w-full font-semibold text-center opacity-70 ">Lorem ipsum dolor sit amet, consectetur
                     adipisicing elit.</p>
             </div>
 
@@ -62,25 +62,25 @@
     </div>
 
 </div>
-<div class="fixed bottom-0 left-0 rounded-t-3xl z-50 w-full bg-white hidden flex-col items-center gap-3 py-2">
-    <h4 class="text-xl font-semibold text-center w-full my-2">Remove From Cart?</h4>
-    <div class="bg-gray-100/50 w-full p-6">
-        <div class="rounded-2xl w-full  flex gap-2 bg-white items-center py-2 px-4">
+<div class="fixed bottom-0 left-0 z-50 flex-col items-center hidden w-full gap-3 py-2 bg-white rounded-t-3xl">
+    <h4 class="w-full my-2 text-xl font-semibold text-center">Remove From Cart?</h4>
+    <div class="w-full p-6 bg-gray-100/50">
+        <div class="flex items-center w-full gap-2 px-4 py-2 bg-white rounded-2xl">
             <div class="rounded-3xl bg-[#f3f3f3]  flex items-center justify-center p-1">
                 <img src="./assets/Images/product-1.png" alt="product" class="w-28">
             </div>
-            <div class="flex flex-col gap-6 flex-1 h-full px-3 py-2">
-                <h3 class="font-semibold text-xl">Air Jordan Pro</h3>
+            <div class="flex flex-col flex-1 h-full gap-6 px-3 py-2">
+                <h3 class="text-xl font-semibold">Air Jordan Pro</h3>
                 <div class="flex items-center gap-2 text-xs tracking-tight ">
-                    <div class="flex items-center gap-2"><span class="bg-black rounded-full w-4 h-4"></span>
+                    <div class="flex items-center gap-2"><span class="w-4 h-4 bg-black rounded-full"></span>
                         Black
                     </div>
                     |
                     <div> size <span class="ml-1"> 42</span></div>
                 </div>
-                <div class="flex justify-between items-center w-full ">
+                <div class="flex items-center justify-between w-full ">
                     <span>105.00$</span>
-                    <div class="bg-gray-200/80 rounded-3xl py-1 px-5 flex items-center gap-2 font-light">
+                    <div class="flex items-center gap-2 px-5 py-1 font-light bg-gray-200/80 rounded-3xl">
                         <button class="text-xl">-</button>
                         <span>3</span>
                         <button class="text-xl">+</button>
@@ -89,21 +89,21 @@
             </div>
         </div>
     </div>
-    <div class="flex justify-center gap-5 py-4 w-full">
-        <button class="rounded-3xl text-center px-10 py-3 bg-gray-300 font-semibold ">Cancel</button>
-        <button class="rounded-3xl text-center px-10 py-3 bg-black text-white shadow-md shadow-black">Yes Remove
+    <div class="flex justify-center w-full gap-5 py-4">
+        <button class="px-10 py-3 font-semibold text-center bg-gray-300 rounded-3xl ">Cancel</button>
+        <button class="px-10 py-3 text-center text-white bg-black shadow-md rounded-3xl shadow-black">Yes Remove
         </button>
     </div>
 </div>
-<div class="fixed bottom-0 left-0 w-full h-screen bg-black/60 z-40 hidden"></div>
-<div class="fixed bottom-0 w-full left-0 px-1 py-2 z-30  bg-white flex flex-col items-center gap-3">
-    <div class=" w-full flex justify-between px-6 py-3 items-center">
+<div class="fixed bottom-0 left-0 z-40 hidden w-full h-screen bg-black/60"></div>
+<div class="fixed bottom-0 left-0 z-30 flex flex-col items-center w-full gap-3 px-1 py-2 bg-white">
+    <div class="flex items-center justify-between w-full px-6 py-3 ">
         <div class="flex flex-col gap-2">
-            <span class="text-xs opacity-40 font-light">total Price</span>
+            <span class="text-xs font-light opacity-40">total Price</span>
             <span class="text-2xl font-semibold ">$ 249.00 </span>
         </div>
         <a href="/public/checkout.html">
-            <button class="rounded-3xl py-3 px-8 text-white font-bold flex items-center justify-center gap-5 bg-black shadow-lg shadow-black">
+            <button class="flex items-center justify-center gap-5 px-8 py-3 font-bold text-white bg-black shadow-lg rounded-3xl shadow-black">
                 <span>Checkout</span>
                 <svg class="w-4 rotate-180" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd"
@@ -114,35 +114,35 @@
             </button>
         </a>
     </div>
-    <nav class="flex items-center justify-evenly text-black w-full">
+    <nav class="flex items-center w-full text-black justify-evenly">
         <a href="/public/home.html">
             <div class="flex flex-col items-center gap-1">
                 <img src="./assets/Images/home.png" class="w-6" alt="home">
-                <span class="tracking-tight text-xs text-center">Home</span>
+                <span class="text-xs tracking-tight text-center">Home</span>
             </div>
         </a>
         <a href="/public/cart.html">
             <div class="flex flex-col items-center gap-1">
                 <img src="./assets/Images/cart-select.png" class="w-6" alt="cart">
-                <span class="tracking-tight text-xs text-center">Cart</span>
+                <span class="text-xs tracking-tight text-center">Cart</span>
             </div>
         </a>
         <a href="/public/orders.html">
             <div class="flex flex-col items-center gap-1">
                 <img src="./assets/Images/bag.svg" class="w-6" alt="order">
-                <span class="tracking-tight text-xs text-center">Order</span>
+                <span class="text-xs tracking-tight text-center">Order</span>
             </div>
         </a>
         <a href="#">
             <div class="flex flex-col items-center gap-1">
                 <img src="./assets/Images/wallet2.svg" class="w-6" alt="wallet">
-                <span class="tracking-tight text-xs text-center">Wallet</span>
+                <span class="text-xs tracking-tight text-center">Wallet</span>
             </div>
         </a>
         <a href="#">
             <div class="flex flex-col items-center gap-1">
                 <img src="./assets/Images/person.svg" class="w-6" alt="profile">
-                <span class="tracking-tight text-xs text-center">Profile</span>
+                <span class="text-xs tracking-tight text-center">Profile</span>
             </div>
         </a>
     </nav>

@@ -7,8 +7,8 @@ module.exports = {
     ],
     theme: {
         extend: {
-            backgroundImage : {
-                "onboard-bg" :"url('/public/assets/Images/onboarding-wall.png')"
+            backgroundImage: {
+                "onboard-bg": "url('/public/assets/Images/onboarding-wall.png')"
             },
         },
     },

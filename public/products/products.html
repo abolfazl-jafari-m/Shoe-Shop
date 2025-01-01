@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../style.css" type="text/css">
+    <title></title>
+</head>
+<body>
+<div class="flex flex-col gap-3">
+    <div class="flex justify-start items-center gap-3 text-[#152536] font-semibold px-8 py-3">
+        <img src="../assets/Images/back-arrow.svg" class="w-5" alt="back" id="back">
+        <h3 class=" text-xl">Most Popular</h3>
+    </div>
+    <div class="flex items-center gap-3 px-6 overflow-x-scroll py-0.5 no-scrollbar" id="filtersBtn">
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold bg-[#343A40] text-white"  >All</button>
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold">Nike</button>
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold">Adidas</button>
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold">Puma</button>
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold">Asics</button>
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold">Reebok</button>
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold text-nowrap">New Balance</button>
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold">Converse</button>
+    </div>
+    <div class="px-6 grid grid-cols-2 gap-4" id="products-box">
+    </div>
+</div>
+
+<div class="h-screen w-full bg-black/60 hidden items-center justify-center fixed top-0 left-0 z-50" id="loading">
+    <img src="../assets/Images/Animation%20-%201734367941115.gif" alt="loading"  class="bg-white p-2 rounded-2xl shadow-black/50 shadow-md">
+</div>
+<script src="../../src/products/products.js" type="module"></script>
+</body>
+</html>

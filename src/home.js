@@ -1,4 +1,5 @@
 import {getUser} from "./Requests/users/users.js";
+import {getProducts, getProductsByFilter} from "./Requests/products/products.js";
 
 
 const username = document.getElementById('username');
@@ -7,34 +8,98 @@ const wishList = document.getElementById("wishList");
 const search = document.getElementById('search');
 const contents = document.getElementById("content");
 const searchBox = document.getElementById("searchBox")
+const productsBox = document.getElementById("products-box");
+const filtersBtn = document.getElementById("filtersBtn").children;
 
-search.onfocus = ()=>{
+
+search.onfocus = () => {
     contents.classList.remove("flex");
     contents.classList.add("hidden");
     searchBox.classList.add("flex");
     searchBox.classList.remove("hidden");
 }
-search.addEventListener("focusout" , ()=>{
+search.addEventListener("focusout", () => {
     contents.classList.add("flex");
     contents.classList.remove("hidden");
     searchBox.classList.remove("flex");
     searchBox.classList.add("hidden");
 })
 
-wishList.onclick = ()=>{
+wishList.onclick = () => {
     window.location.href = "/public/products/wishList.html";
 }
+for (const btn of filtersBtn) {
+    btn.addEventListener("click", () => {
+        for (const item of filtersBtn) {
+            item.classList.remove("bg-[#343A40]");
+            item.classList.remove("text-white");
+        }
+        btn.classList.add("bg-[#343A40]");
+        btn.classList.add("text-white");
+        fillerByBrand(btn.innerText)
+    })
+}
 
-function render(){
+
+export function fillerByBrand(brand) {
+    brand = (brand !== "All") ? brand : "";
+    loading.classList.remove("hidden")
+    loading.classList.add("flex");
+    productsBox.innerHTML = "";
+    getProductsByFilter("brand", brand.toUpperCase())
+        .then((res) => {
+            if (res) {
+                res.forEach(item => {
+                    productsBox.innerHTML += `
+                     <a href="/public/products/product.html?id=${item.id}">
+                        <div class="flex flex-col items-center gap-3">
+                            <div class="rounded-xl flex items-center justify-center p-3 bg-[#F6F6F6] ">
+                                <img src="${item.imageURL}" alt="${item.slug}" class="w-36 h-36">
+                            </div>
+                            <div class="flex flex-col gap-2 px-1">
+                                <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">${item.name}</h4>
+                                <span class="text-[#152536] font-semibold">$ ${item.price}</span>
+                            </div>
+                        </div>
+                  </a>
+                    `
+                })
+            }
+        }).finally(() => {
+        loading.classList.add("hidden");
+        loading.classList.remove("flex");
+    })
+}
+
+function render() {
     loading.classList.remove("hidden");
     loading.classList.add("flex");
     getUser()
-        .then(res=>{
+        .then(res => {
             username.innerHTML = res ?? "Guest";
-        }).finally(()=>{
-        loading.classList.remove("flex");
-        loading.classList.add("hidden");
+            return getProducts()
+        }).then((res) => {
+        productsBox.innerHTML = ""
+        res.forEach((item) => {
+            productsBox.innerHTML += `
+                  <a href="/public/products/product.html?id=${item.id}">
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="rounded-xl flex items-center justify-center p-3 bg-[#F6F6F6] ">
+                            <img src="${item.imageURL}" alt="${item.slug}" class="w-36 h-36">
+                        </div>
+                        <div class="flex flex-col gap-2 px-1">
+                            <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">${item.name}</h4>
+                            <span class="text-[#152536] font-semibold">$ ${item.price}</span>
+                        </div>
+                    </div>
+                   </a>
+                `
+        })
     })
+        .finally(() => {
+            loading.classList.remove("flex");
+            loading.classList.add("hidden");
+        })
 }
 
 render();

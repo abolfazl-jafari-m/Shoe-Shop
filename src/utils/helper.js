@@ -1,10 +1,22 @@
 export function setAuthTokenInLocalStorage(token) {
     localStorage.setItem('token', JSON.stringify(token));
 }
-export function getAuthToken(){
+
+export function getAuthToken() {
     return JSON.parse(localStorage.getItem("token"));
 }
 
+export function message(msg, color) {
+    const message_elm = document.getElementById('message');
+    message_elm.style.backgroundColor = color;
+    message_elm.classList.remove("hidden");
+    message_elm.classList.add("popup");
+    message_elm.innerHTML = msg;
+    setTimeout(()=>{
+        message_elm.classList.remove("popup");
+        message_elm.classList.add("hidden");
+    }, 3000);
+}
 
 
 export function validate(rules, inputMessage) {

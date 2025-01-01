@@ -51,3 +51,8 @@
 * {
     font-family: Inter, sans-serif;
 }
+
+
+.popup {
+    @apply motion-translate-y-in-[300%] motion-duration-[1.00s]/translate motion-duration-500
+}
