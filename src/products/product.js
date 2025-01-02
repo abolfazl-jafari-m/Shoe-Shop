@@ -92,7 +92,10 @@ wishListBtn.addEventListener("click", ()=>{
                 }
             })
     }else {
-        addToFavorite(productId)
+        addToFavorite({
+            productId : product.id,
+            brand : product.brand
+        })
             .then((res)=>{
                 if (res){
                     wishListBtn.src = "../assets/Images/heart-svgrepo-com.svg";

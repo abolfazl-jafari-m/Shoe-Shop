@@ -6,7 +6,7 @@ export async function addToFavorite (item){
         const response = await fetch(`${API_URL}/api/records/wishList` ,{
             method : "POST",
             headers : headers,
-            body : JSON.stringify({productId :item})
+            body : JSON.stringify(item)
         })
         if (!response.ok){
             throw new Error("Something Goes Wrong.Please Try Again")
@@ -44,11 +44,27 @@ export async function getAllFavorites(){
             throw new Error("Something Goes Wrong.Please Try Again")
         }
         const result = await response.json();
-        return result;
+        return result.records;
     }catch (e){
         message(e.message , "#B91C1C");
     }
 }
 export async function getFavoriteByProductId(id){
 
+}
+
+export async function getFavoritesByFilter(key , value){
+    try{
+        const response = await fetch(`${API_URL}/api/records/wishList?filterKey=${key}&filterValue=${value}`, {
+            method : "GET",
+            headers : headers
+        })
+        if (!response.ok){
+            throw new Error("somethings wrong at the moment")
+        }
+        const result = await response.json();
+        return result.records;
+    }catch (e) {
+        message(e.message , "#B91C1C");
+    }
 }
