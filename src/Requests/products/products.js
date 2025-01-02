@@ -48,3 +48,20 @@ export async function getProductById(id){
         message(e.message , "#B91C1C");
     }
 }
+
+
+export async function searchProduct(key , value){
+    try{
+        const response = await fetch(`${API_URL}/api/records/products?searchKey=${key}&searchValue=${value}`, {
+            method : "GET",
+            headers : headers
+        })
+        if (!response.ok){
+            throw new Error("something goes wrong")
+        }
+        const  result = await response.json();
+        return result.records;
+    }catch (e) {
+        message(e.message , "#B91C1C")
+    }
+}

@@ -5,10 +5,71 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css">
     <title>Search</title>
 </head>
 <body>
+<div class="flex flex-col my-2 gap-2 w-full">
+    <div class="px-8 py-3 w-full ">
+        <div class="rounded-2xl has-[:focus]:border-black flex items-center gap-2 border-2  bg-gray-300/70 px-4 py-3">
+            <img src="./assets/Images/search.svg" alt="search" class="w-5">
+            <input type="text" id="searchInput" class="border-0 outline-0 bg-transparent flex-1 text-black/80"
+                   placeholder="Search">
+            <button>
+                <img src="./assets/Images/Filter%201.svg" class="w-5" alt="filter" id="searchBtn">
+            </button>
+        </div>
+    </div>
+    <div id="searchResult" class="hidden flex-col w-full gap-2 px-8">
+    </div>
+    <div id="recentBox" class=" flex-col gap-2 px-8 w-full">
+        <div class="flex items-center justify-between font-semibold text-lg">
+            <span>Recent</span>
+            <span id="clearAll">Clear All</span>
+        </div>
+        <hr>
+        <div class="flex flex-col w-full gap-2.5 my-2" id="resentItem">
+        </div>
+    </div>
+</div>
+
+<nav class="fixed bottom-0 w-full left-0 px-1 py-3 z-40 flex items-center justify-evenly bg-white text-black">
+    <a href="/public/home.html">
+        <div class="flex flex-col items-center gap-1">
+            <img src="./assets/Images/home.png" class="w-6" alt="home">
+            <span class="tracking-tight text-xs text-center">Home</span>
+        </div>
+    </a>
+    <a href="/public/cart.html">
+        <div class="flex flex-col items-center gap-1">
+            <img src="./assets/Images/cart2.svg" class="w-6" alt="cart">
+            <span class="tracking-tight text-xs text-center">Cart</span>
+        </div>
+    </a>
+    <a href="/public/orders.html">
+        <div class="flex flex-col items-center gap-1">
+            <img src="./assets/Images/bag.svg" class="w-6" alt="order">
+            <span class="tracking-tight text-xs text-center">Order</span>
+        </div>
+    </a>
+    <a href="#">
+        <div class="flex flex-col items-center gap-1">
+            <img src="./assets/Images/wallet2.svg" class="w-6" alt="wallet">
+            <span class="tracking-tight text-xs text-center">Wallet</span>
+        </div>
+    </a>
+    <a href="#">
+        <div class="flex flex-col items-center gap-1">
+            <img src="./assets/Images/person.svg" class="w-6" alt="profile">
+            <span class="tracking-tight text-xs text-center">Profile</span>
+        </div>
+    </a>
+</nav>
+
+
+<div class="h-screen w-full bg-black/60 hidden items-center justify-center fixed top-0 left-0 z-50" id="loading">
+    <img src="./assets/Images/Animation%20-%201734367941115.gif" alt="loading"  class="bg-white p-2 rounded-2xl shadow-black/50 shadow-md">
+</div>
 
 <script src="../src/search.js" type="module"></script>
 </body>
