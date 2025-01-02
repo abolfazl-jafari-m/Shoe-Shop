@@ -18,7 +18,7 @@ export async function addToCart(item) {
     }
 }
 
-export async function removeFromCart(id){
+export async function deleteFromCart(id){
     try {
         const response = await fetch(`${API_URL}/api/records/cart/${id}`, {
             method: "DELETE",
@@ -34,7 +34,7 @@ export async function removeFromCart(id){
     }
 }
 
-export async function getAllProducts(){
+export async function getAllCartItems(){
     try {
         const response = await fetch(`${API_URL}/api/records/cart`, {
             method: "GET",
@@ -45,6 +45,38 @@ export async function getAllProducts(){
         }
         const result = await response.json();
         return result.records;
+    }catch (e){
+        message(e.message , "#B91C1C");
+    }
+}
+
+export async function getCartItemById(id){
+    try{
+        const response = await fetch(`${API_URL}/api/records/cart/${id}` , {
+            method : "GET",
+            headers : headers
+        })
+        if (!response.ok){
+            throw new Error("Something Goes wrong . Please Try Again")
+        }
+        const  result = await response.json();
+        return result;
+    }catch (e) {
+        message(e.message , "#B91C1C");
+    }
+}
+export  async function updateCartItem(id , items){
+    try{
+        const response = await fetch(`${API_URL}/api/records/cart/${id}` , {
+            method : "PUT",
+            headers : headers,
+            body : JSON.stringify(items)
+        })
+        if (!response.ok){
+            throw new Error("updating Cart wasn't Successful")
+        }
+        const result = await response.json();
+        return result;
     }catch (e){
         message(e.message , "#B91C1C");
     }

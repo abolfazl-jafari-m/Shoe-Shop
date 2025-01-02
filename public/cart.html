@@ -19,88 +19,29 @@
             <button><img src="./assets/Images/search.svg" class="w-6" alt="search"></button>
         </div>
     </div>
-    <div class="flex flex-col w-full px-4 ">
-        <div class="w-full my-2 rounded-md bg-gray-200/40 ">
-            <div class="flex flex-col w-full gap-4 p-3 ">
-                <div class="relative flex items-center gap-2 px-4 py-2 bg-white rounded-2xl">
-                    <div class="rounded-3xl bg-[#f3f3f3]  flex items-center justify-center p-1">
-                        <img src="./assets/Images/product-1.png" alt="product" class="w-28">
-                    </div>
-                    <div class="flex flex-col flex-1 h-full gap-6 px-3 py-2">
-                        <h3 class="text-xl font-semibold">Air Jordan Pro</h3>
-                        <div class="flex items-center gap-2 text-xs tracking-tight ">
-                            <div class="flex items-center gap-2"><span class="w-4 h-4 bg-black rounded-full"></span>
-                                Black
-                            </div>
-                            |
-                            <div> size <span class="ml-1"> 42</span></div>
-                        </div>
-                        <div class="flex items-center justify-between w-full ">
-                            <span>105.00$</span>
-                            <div class="flex items-center gap-2 px-5 py-1 font-light bg-gray-200/80 rounded-3xl">
-                                <button class="text-xl">-</button>
-                                <span>3</span>
-                                <button class="text-xl">+</button>
-                            </div>
-                        </div>
-                    </div>
-                    <span class="absolute w-4 top-5 right-4"><img src="./assets/Images/delete-o-svgrepo-com.svg"
-                                                                  alt="delete" class="w-full"></span>
-                </div>
-            </div>
-        </div>
-        <div class="items-center justify-center hidden w-full">
-            <div class="flex flex-col items-center px-6 py-3">
-                <img src="./assets/Images/Doc.png" alt="empty" class="w-full">
-                <h3 class="text-xl font-semibold text-center ">You Have not an Order Yet</h3>
-                <p class="w-full font-semibold text-center opacity-70 ">Lorem ipsum dolor sit amet, consectetur
-                    adipisicing elit.</p>
-            </div>
+    <div class="flex flex-col w-full px-4" id="cartItems">
 
-        </div>
 
     </div>
 
 </div>
-<div class="fixed bottom-0 left-0 z-50 flex-col items-center hidden w-full gap-3 py-2 bg-white rounded-t-3xl">
+<div id="deleteModal" class="fixed bottom-0 left-0 z-50 flex-col items-center hidden w-full gap-3 py-2 bg-white rounded-t-3xl motion-preset-expand ">
     <h4 class="w-full my-2 text-xl font-semibold text-center">Remove From Cart?</h4>
-    <div class="w-full p-6 bg-gray-100/50">
-        <div class="flex items-center w-full gap-2 px-4 py-2 bg-white rounded-2xl">
-            <div class="rounded-3xl bg-[#f3f3f3]  flex items-center justify-center p-1">
-                <img src="./assets/Images/product-1.png" alt="product" class="w-28">
-            </div>
-            <div class="flex flex-col flex-1 h-full gap-6 px-3 py-2">
-                <h3 class="text-xl font-semibold">Air Jordan Pro</h3>
-                <div class="flex items-center gap-2 text-xs tracking-tight ">
-                    <div class="flex items-center gap-2"><span class="w-4 h-4 bg-black rounded-full"></span>
-                        Black
-                    </div>
-                    |
-                    <div> size <span class="ml-1"> 42</span></div>
-                </div>
-                <div class="flex items-center justify-between w-full ">
-                    <span>105.00$</span>
-                    <div class="flex items-center gap-2 px-5 py-1 font-light bg-gray-200/80 rounded-3xl">
-                        <button class="text-xl">-</button>
-                        <span>3</span>
-                        <button class="text-xl">+</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="w-full p-6 bg-gray-100/50" id="deleteModalContent">
+
     </div>
     <div class="flex justify-center w-full gap-5 py-4">
-        <button class="px-10 py-3 font-semibold text-center bg-gray-300 rounded-3xl ">Cancel</button>
-        <button class="px-10 py-3 text-center text-white bg-black shadow-md rounded-3xl shadow-black">Yes Remove
+        <button class="px-10 py-3 font-semibold text-center bg-gray-300 rounded-3xl " id="closeDeleteModalBtn">Cancel</button>
+        <button class="px-10 py-3 text-center text-white bg-black shadow-md rounded-3xl shadow-black" id="removeFromCart">Yes Remove
         </button>
     </div>
 </div>
-<div class="fixed bottom-0 left-0 z-40 hidden w-full h-screen bg-black/60"></div>
+<div id="overlay" class="fixed bottom-0 left-0 z-40 hidden w-full h-screen bg-black/60"></div>
 <div class="fixed bottom-0 left-0 z-30 flex flex-col items-center w-full gap-3 px-1 py-2 bg-white">
     <div class="flex items-center justify-between w-full px-6 py-3 ">
         <div class="flex flex-col gap-2">
             <span class="text-xs font-light opacity-40">total Price</span>
-            <span class="text-2xl font-semibold ">$ 249.00 </span>
+            <span class="text-2xl font-semibold " id="totalAllPrice"> </span>
         </div>
         <a href="/public/checkout.html">
             <button class="flex items-center justify-center gap-5 px-8 py-3 font-bold text-white bg-black shadow-lg rounded-3xl shadow-black">
@@ -147,5 +88,13 @@
         </a>
     </nav>
 </div>
+
+<div class="h-screen w-full bg-black/60 hidden items-center justify-center fixed top-0 left-0 z-50" id="loading">
+    <img src="./assets/Images/Animation%20-%201734367941115.gif" alt="loading"  class="bg-white p-2 rounded-2xl shadow-black/50 shadow-md">
+</div>
+
+<span id="message" class=" fixed top-4 right-4 px-3 py-1 rounded-xl shadow-md shadow-black/50 text-white tracking-tight hidden transition-all duration-300">No Account Found with this information</span>
+
+<script src="../src/cart.js" type="module"></script>
 </body>
 </html>

@@ -30,9 +30,9 @@ const color = {
     blue: ["bg-blue-800  border-blue-800  checked:bg-blue-950"],
     red: ["bg-red-800  border-red-800 checked:bg-red-950"]
 }
-let itemsLeft = null;
-let price = null;
+
 let liked = false;
+let product = null;
 
 
 backBtn.onclick = ()=>{
@@ -40,7 +40,7 @@ backBtn.onclick = ()=>{
 }
 
 addQuantityBtn.onclick = () => {
-    if (quantity.innerText < itemsLeft) {
+    if (quantity.innerText < product.items_left) {
         quantity.innerText++;
         calculateTotal();
     }
@@ -53,15 +53,13 @@ minusQuantityBtn.onclick = () => {
 }
 
 function calculateTotal() {
-    totalPrice.innerText = "$ " + (quantity.innerText * price).toFixed(2);
+    totalPrice.innerText = "$ " + (quantity.innerText * product.price).toFixed(2);
 }
 
 addToCartBtn.addEventListener("click" , (e)=>{
     let item = {
-        productId : productId,
-        name : name.innerText,
+        productId : product.id,
         quantity : quantity.innerText,
-        totalPrice : totalPrice.innerText,
         color : document.querySelector("input[name=color]:checked")?.value,
         size : document.querySelector("input[name=size]:checked")?.value,
     }
@@ -111,14 +109,15 @@ function renderProduct() {
     loading.classList.add("flex");
     getProductById(productId).then((res) => {
         if (res) {
+            product = res;
             document.title = res.name;
-            itemsLeft = res.items_left;
-            totalPrice.innerHTML = "$ " + res.price.toFixed(2);
-            price = res.price;
             name.innerHTML = res.name;
-            images.innerHTML = `
-                <img src="${res.imageURL}" alt="${res.slug}">
+            totalPrice.innerText = "$ "+ res.price.toFixed(2);
+            res.imageURL.forEach(item=>{
+                images.innerHTML = `
+                <img src="${item}" alt="${res.slug}">
                 `
+            })
             description.innerHTML = res.description;
             res.sizes.forEach(item => {
                 size.innerHTML += `
