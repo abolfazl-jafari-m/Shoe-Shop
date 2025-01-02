@@ -1,4 +1,4 @@
-import {getAllFavorites, removeFromFavorite} from "../Requests/wishList/wishList.js";
+import {getAllFavorites, getFavoritesByFilter, removeFromFavorite} from "../Requests/wishList/wishList.js";
 import {getProductById, getProductsByFilter} from "../Requests/products/products.js";
 
 const productBox = document.getElementById("products-box");
@@ -41,9 +41,9 @@ function fillerByBrand(brand) {
     loading.classList.remove("hidden")
     loading.classList.add("flex");
     productBox.innerHTML = "";
-    getProductsByFilter("brand", brand.toUpperCase())
+    getFavoritesByFilter("brand", brand.toUpperCase())
         .then((res) => {
-            if (res) {
+            if (res.length !==0) {
                 res.forEach(item => {
                     productBox.innerHTML += `
                                         <div class="flex flex-col items-center gap-3 relative">
@@ -72,6 +72,16 @@ function fillerByBrand(brand) {
                                    </div>
                     `
                 })
+            }else {
+                productBox.innerHTML = `
+                     <div class="fixed flex w-full left-0 items-center justify-center gap-3 flex-col">
+                        <img src="../assets/Images/Doc.png" alt="empty">
+                        <h4 class="text-xl font-semibold text-center ">No Favorite ${brand} Yet</h4>
+                        <p class="font-light tracking-tight text-sm px-3 py-2 w-2/3 text-center">Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit. A aspernatur autem consequuntur dolores dolorum
+                            eius eligendi enim est et minus </p>
+                    </div>
+                    `
             }
         }).finally(() => {
         loading.classList.add("hidden");
