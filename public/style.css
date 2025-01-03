@@ -1257,6 +1257,10 @@ video {
   height: 2.5rem;
 }
 
+.h-16 {
+  height: 4rem;
+}
+
 .h-2\/5 {
   height: 40%;
 }
@@ -1293,6 +1297,10 @@ video {
   height: 100vh;
 }
 
+.h-14 {
+  height: 3.5rem;
+}
+
 .w-1\/2 {
   width: 50%;
 }
@@ -1315,6 +1323,10 @@ video {
 
 .w-14 {
   width: 3.5rem;
+}
+
+.w-16 {
+  width: 4rem;
 }
 
 .w-2\/3 {
@@ -1835,6 +1847,10 @@ video {
   padding: 1.5rem;
 }
 
+.p-0\.5 {
+  padding: 0.125rem;
+}
+
 .px-1 {
   padding-left: 0.25rem;
   padding-right: 0.25rem;
@@ -2110,6 +2126,11 @@ video {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
+.shadow-gray-300\/70 {
+  --tw-shadow-color: rgb(209 213 219 / 0.7);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
 .shadow-gray-400\/70 {
   --tw-shadow-color: rgb(156 163 175 / 0.7);
   --tw-shadow: var(--tw-shadow-colored);
@@ -2117,11 +2138,6 @@ video {
 
 .shadow-gray-500\/70 {
   --tw-shadow-color: rgb(107 114 128 / 0.7);
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
-.shadow-gray-300\/70 {
-  --tw-shadow-color: rgb(209 213 219 / 0.7);
   --tw-shadow: var(--tw-shadow-colored);
 }
 

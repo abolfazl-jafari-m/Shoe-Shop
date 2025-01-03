@@ -3,14 +3,18 @@ import {getProducts, getProductsByFilter} from "./Requests/products/products.js"
 
 
 const username = document.getElementById('username');
+const avatar = document.getElementById("avatar");
 const loading = document.getElementById("loading");
 const wishList = document.getElementById("wishList");
 const search = document.getElementById('search');
+const welcomeMessage = document.getElementById("welcomeMessage");
+
 
 const searchBox = document.getElementById("searchBox")
 const productsBox = document.getElementById("products-box");
 const filtersBtn = document.getElementById("filtersBtn").children;
 
+const time = new Date().getHours()
 
 search.onfocus = () => {
    window.location.href= "/public/search.html";
@@ -64,11 +68,13 @@ function fillerByBrand(brand) {
 
 
 function render() {
+    (time < 12)  ? welcomeMessage.innerHTML = "Good Morning" :  welcomeMessage.innerHTML = "Good Evening"
     loading.classList.remove("hidden");
     loading.classList.add("flex");
     getUser()
         .then(res => {
-            username.innerHTML = res ?? "Guest";
+            username.innerHTML = res.username ?? "Guest";
+            avatar.src = res?.avatar ?? "./assets/Images/profile.png";
             return getProducts()
         }).then((res) => {
         productsBox.innerHTML = ""

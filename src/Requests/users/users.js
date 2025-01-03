@@ -36,8 +36,8 @@ export async function getUser() {
             throw new Error("user not found")
         }
         const result = await response.json();
-        return result.email;
+        return result
     } catch (e) {
-        console.log(e)
+        message(e.message, '#BE123C');
     }
 }

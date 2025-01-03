@@ -1,6 +1,13 @@
-import {deleteFromCart, getAllCartItems, getCartItemById, updateCartItem} from "./Requests/cart/cart.js";
+import {
+    deleteAllCartItem,
+    deleteFromCart,
+    getAllCartItems,
+    getCartItemById,
+    updateCartItem
+} from "./Requests/cart/cart.js";
 import {getProductById} from "./Requests/products/products.js";
 import {message} from "./utils/helper.js";
+import {addToOrders} from "./Requests/orders/orders.js";
 
 const cartItemsBox = document.getElementById("cartItems");
 const loading = document.getElementById("loading");
@@ -9,7 +16,8 @@ const deleteModal = document.getElementById("deleteModal");
 const deleteModalContent = document.getElementById('deleteModalContent');
 const closeDeleteModal = document.getElementById('closeDeleteModalBtn');
 const totalAllPrice = document.getElementById("totalAllPrice");
-const removeFromCart =  document.getElementById("removeFromCart");
+const removeFromCart = document.getElementById("removeFromCart");
+const checkoutBtn = document.getElementById("checkoutBtn");
 
 let totals = null;
 let tempCartItemId = null;
@@ -22,48 +30,48 @@ window.addQuantity = async (id) => {
     const cartItem = await getCartItemById(id);
     const product = await getProductById(cartItem.productId);
     let itemQuantity = +cartItem.quantity;
-    if (product.items_left > itemQuantity ){
+    if (product.items_left > itemQuantity) {
         itemQuantity++;
-        updateCartItem(id , {quantity: itemQuantity})
-            .then(res =>{
-                if (res){
+        updateCartItem(id, {quantity: itemQuantity})
+            .then(res => {
+                if (res) {
                     render();
-                    message("Product Quantity increase" , "blue")
+                    message("Product Quantity increase", "blue")
                 }
             })
     }
 }
-window.minusQuantity =async (id) => {
+window.minusQuantity = async (id) => {
     loading.classList.remove("hidden");
     loading.classList.add("flex");
     const cartItem = await getCartItemById(id);
     let itemQuantity = +cartItem.quantity;
-    if (itemQuantity > 0 ){
+    if (itemQuantity > 0) {
         itemQuantity--;
-        updateCartItem(id , {quantity: itemQuantity})
-            .then(res =>{
-                if (res){
+        updateCartItem(id, {quantity: itemQuantity})
+            .then(res => {
+                if (res) {
                     render();
-                    message("Product Quantity decrease" , "blue")
+                    message("Product Quantity decrease", "blue")
                 }
             })
     }
 }
 
 
-window.countIncrease =() =>{
+window.countIncrease = () => {
     const quantity = document.getElementById("deleteCount")
     let deleteCount = +quantity.innerText;
-    if (deleteCount < tempCartItemQuantity){
-       deleteCount++;
-       quantity.innerText = deleteCount
+    if (deleteCount < tempCartItemQuantity) {
+        deleteCount++;
+        quantity.innerText = deleteCount
     }
 }
 
-window.countDecrease = ()=>{
+window.countDecrease = () => {
     const quantity = document.getElementById("deleteCount")
     let deleteCount = +quantity.innerText;
-    if (deleteCount  > 1){
+    if (deleteCount > 1) {
         deleteCount--;
         quantity.innerText = deleteCount;
     }
@@ -124,24 +132,24 @@ closeDeleteModal.addEventListener("click", () => {
     deleteModal.classList.remove("flex");
 })
 
-removeFromCart.addEventListener("click", ()=>{
+removeFromCart.addEventListener("click", () => {
     const deleteCount = document.getElementById("deleteCount")?.innerText;
-    console.log(deleteCount ,tempCartItemQuantity);
-    if (+deleteCount === +tempCartItemQuantity){
+    console.log(deleteCount, tempCartItemQuantity);
+    if (+deleteCount === +tempCartItemQuantity) {
         deleteFromCart(tempCartItemId)
-            .then((res)=>{
-                if (res){
+            .then((res) => {
+                if (res) {
                     message("Item Deleted Successfully", "green");
                     overlay.classList.add("hidden");
                     deleteModal.classList.add("hidden");
                     render();
                 }
             })
-    }else {
+    } else {
         let quantity = tempCartItemQuantity - deleteCount;
-        updateCartItem(tempCartItemId, {quantity : quantity})
-            .then((res)=>{
-                if (res){
+        updateCartItem(tempCartItemId, {quantity: quantity})
+            .then((res) => {
+                if (res) {
                     message("Item Deleted Successfully", "green");
                     overlay.classList.add("hidden");
                     deleteModal.classList.add("hidden");
@@ -151,6 +159,26 @@ removeFromCart.addEventListener("click", ()=>{
     }
 
 })
+
+
+checkoutBtn.addEventListener("click", async () => {
+    loading.classList.add("flex");
+    loading.classList.remove("hidden");
+    const orders = await getAllCartItems();
+    if (orders.length !== 0) {
+        const emptyCart = await deleteAllCartItem();
+        for (const item of orders) {
+            item.status = "pending"
+            await addToOrders(item);
+        }
+        loading.classList.remove("flex");
+        loading.classList.add("hidden");
+    }
+    window.location.href = "/public/checkout.html";
+
+})
+
+
 function render() {
     totals = 0;
     loading.classList.remove("hidden");
@@ -175,9 +203,9 @@ function render() {
                     res.forEach(item => {
                         getProductById(item.productId)
                             .then(product => {
-                            if (product) {
-                                totals += +(product.price * item.quantity);
-                                cartItemsBox.innerHTML += `
+                                if (product) {
+                                    totals += +(product.price * item.quantity);
+                                    cartItemsBox.innerHTML += `
                                      <div class="w-full my-2  shadow-gray-500/70 shadow-md rounded-2xl ">
                                         <div class="flex flex-col w-full gap-4 ">
                                             <div class="relative flex items-center gap-2 px-4 py-2 bg-white rounded-2xl">
@@ -208,8 +236,8 @@ function render() {
                                         </div>
                                     </div>
                     `
-                            }
-                        }).finally(() => {
+                                }
+                            }).finally(() => {
                             totalAllPrice.innerText = "$ " + totals.toFixed(2);
                             loading.classList.add("hidden");
                             loading.classList.remove("flex");

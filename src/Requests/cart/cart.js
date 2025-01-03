@@ -81,3 +81,18 @@ export  async function updateCartItem(id , items){
         message(e.message , "#B91C1C");
     }
 }
+export async function deleteAllCartItem(){
+    try{
+        const response = await fetch(`${API_URL}/api/records/cart/delete-all` ,{
+            method :"DELETE",
+            headers : headers
+        })
+        if (!response.ok){
+            throw new Error("something goes wrong")
+        }
+        const result = await response.json();
+        return result;
+    }catch (e){
+        message(e.message , "#B91C1C");
+    }
+}
