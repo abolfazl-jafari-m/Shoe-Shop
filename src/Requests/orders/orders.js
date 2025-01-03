@@ -33,3 +33,19 @@ export async function getAllOrderItem(){
         message(e.message , "#B91C1C");
     }
 }
+
+export async function getOrderItemByFilter(key , value){
+    try{
+        const response = await fetch(`${API_URL}/api/records/orders?filterKey=${key}&filterValue=${value}` , {
+            method:"GET",
+            headers : headers
+        })
+        if (!response.ok){
+            throw  new Error("failed to get your Orders")
+        }
+        const  result = await  response.json();
+        return result.records
+    }catch (e){
+        message(e.message , "#B91C1C");
+    }
+}
