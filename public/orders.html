@@ -28,69 +28,11 @@
     <div>
       <div id="activeTab" class="  w-full my-2 flex motion-preset-focus motion-duration-500 ">
         <div class=" flex-col p-2 gap-4 w-full flex" id="activeOrders">
-          <div class="rounded-2xl shadow-gray-300/70 shadow-lg px-4 py-2 w-full flex gap-2 items-center bg-white">
-            <div class="h-full rounded-2xl bg-[#f3f3f3] p-1 flex items-center justify-center">
-              <img src="./assets/Images/product-1.png" alt="product" class="w-32">
-            </div>
-            <div class="flex flex-col gap-2 flex-1 h-full">
-              <h3 class="font-semibold">Air Jordan Pro</h3>
-              <div class="flex items-center gap-2 text-xs tracking-tight ">
-                <div class="flex items-center gap-2"> <span class="bg-black rounded-full w-4 h-4"></span>  Black</div> |
-                <div > size <span class="ml-1"> 42</span> </div> |
-                <div>  Qty<span class="ml-1"> 1</span> </div>
-              </div>
-              <div class="text-xs tracking-tight font-extralight bg-gray-300 rounded-lg text-center w-fit p-2 my-1 capitalize"> in Delivery </div>
-              <div class="flex justify-between items-center w-full">
-                <span>105.00$</span>
-                <button class="rounded-2xl py-1 px-3 text-center bg-black text-white text-sm">Track Order</button>
-              </div>
-            </div>
-          </div>
-          <div class="rounded-2xl shadow-gray-300/70 shadow-lg px-4 py-2 w-full flex gap-2 items-center bg-white">
-            <div class="h-full rounded-xl bg-[#f3f3f3] p- flex items-center justify-center">
-              <img src="./assets/Images/product-1.png" alt="product" class="h-full">
-            </div>
-            <div class="flex flex-col gap-2 flex-1 h-full">
-              <h3 class="font-semibold">Air Jordan Pro</h3>
-              <div class="flex items-center gap-2 text-xs tracking-tight ">
-                <div class="flex items-center gap-2"> <span class="bg-black rounded-full w-4 h-4"></span>  Black</div> |
-                <div > size <span class="ml-1"> 42</span> </div> |
-                <div>  Qty<span class="ml-1"> 1</span> </div>
-              </div>
-              <div class="text-xs tracking-tight font-extralight bg-gray-300 rounded-lg text-center w-fit p-2"> in Delivery </div>
-              <div class="flex justify-between items-center w-full">
-                <span>105.00$</span>
-                <button class="rounded-2xl py-1 px-3 text-center bg-black text-white text-sm">Track Order</button>
-              </div>
-            </div>
-          </div>
-          <div class="rounded-2xl shadow-gray-300/70 shadow-lg px-4 py-2 w-full flex gap-2 items-center bg-white">
-            <div class="h-full rounded-xl bg-[#f3f3f3] p- flex items-center justify-center">
-              <img src="./assets/Images/product-1.png" alt="product" class="h-full">
-            </div>
-            <div class="flex flex-col gap-2 flex-1 h-full">
-              <h3 class="font-semibold">Air Jordan Pro</h3>
-              <div class="flex items-center gap-2 text-xs tracking-tight ">
-                <div class="flex items-center gap-2"> <span class="bg-black rounded-full w-4 h-4"></span>  Black</div> |
-                <div > size <span class="ml-1"> 42</span> </div> |
-                <div>  Qty<span class="ml-1"> 1</span> </div>
-              </div>
-              <div class="text-xs tracking-tight font-extralight bg-gray-300 rounded-lg text-center w-fit p-2"> in Delivery </div>
-              <div class="flex justify-between items-center w-full">
-                <span>105.00$</span>
-                <button class="rounded-2xl py-1 px-3 text-center bg-black text-white text-sm">Track Order</button>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <div id="completeTab" class=" hidden items-center justify-center w-full motion-preset-focus motion-duration-500">
         <div class="flex flex-col items-center px-6 py-3" id="completeOrders">
-          <img src="./assets/Images/Doc.png" alt="empty"  class="w-full">
-          <h3 class="text-xl font-semibold text-center ">You Have not an Order Yet</h3>
-          <p class="opacity-70 font-semibold text-center w-full ">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
         </div>
-
       </div>
     </div>
 
@@ -130,6 +72,9 @@
   </a>
 </nav>
 
+<div class="h-screen w-full bg-black/60 hidden items-center justify-center fixed top-0 left-0 z-50" id="loading">
+  <img src="./assets/Images/Animation%20-%201734367941115.gif" alt="loading"  class="bg-white p-2 rounded-2xl shadow-black/50 shadow-md">
+</div>
 <script src="../src/orders.js" type="module"></script>
 </body>
 </html>

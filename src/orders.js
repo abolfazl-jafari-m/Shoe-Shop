@@ -8,9 +8,10 @@ const completeBtn = document.getElementById("completeBtn");
 const completeTab = document.getElementById("completeTab");
 const activeOrdersBox = document.getElementById("activeOrders");
 const completeOrdersBox = document.getElementById("completeOrders");
+const loading = document.getElementById("loading");
 
 
-activeBtn.addEventListener("click", ()=>{
+activeBtn.addEventListener("click", () => {
     activeBtn.classList.remove("text-gray-400")
     activeBtn.classList.remove("border-gray-400")
     activeBtn.classList.add("border-black");
@@ -23,7 +24,7 @@ activeBtn.addEventListener("click", ()=>{
     completeTab.classList.remove("flex");
 
 })
-completeBtn.addEventListener("click", ()=>{
+completeBtn.addEventListener("click", () => {
     completeBtn.classList.remove("text-gray-400")
     completeBtn.classList.remove("border-gray-400")
     completeBtn.classList.add("border-black");
@@ -37,17 +38,17 @@ completeBtn.addEventListener("click", ()=>{
 })
 
 
-function renderActiveOrders(){
+function renderActiveOrders() {
+    loading.classList.remove("hidden");
+    loading.classList.add("flex");
     activeOrdersBox.innerHTML = "";
-    console.log(activeOrdersBox)
     getOrderItemByFilter("status", "pending")
-        .then((res)=>{
-            if (res.length !== 0){
-                console.log(res)
-               res.forEach(item=>{
-                   getProductById(item.productId)
-                       .then((product)=>{
-                           activeOrdersBox.innerHTML +=`
+        .then((res) => {
+            if (res.length !== 0) {
+                res.forEach(item => {
+                    getProductById(item.productId)
+                        .then((product) => {
+                            activeOrdersBox.innerHTML += `
                                     <div class="rounded-2xl shadow-gray-300/70 shadow-lg px-4 py-2 w-full flex gap-2 items-center bg-white">
                                         <div class="h-full rounded-2xl bg-[#f3f3f3] p-1 flex items-center justify-center">
                                           <img src="${product.imageURL[0]}" alt="${product.slug}" class="w-32">
@@ -67,9 +68,13 @@ function renderActiveOrders(){
                                         </div>
                                      </div>
                            `
-                       })
-               })
-            }else {
+                        })
+                        .finally(()=>{
+                            loading.classList.remove("flex");
+                            loading.classList.add("hidden");
+                        })
+                })
+            } else {
                 activeOrdersBox.innerHTML = `
                       <img src="./assets/Images/Doc.png" alt="empty"  class="w-full">
                       <h3 class="text-xl font-semibold text-center ">You Have not an Active Order Yet</h3>
@@ -79,15 +84,15 @@ function renderActiveOrders(){
         })
 }
 
-function renderCompleteOrders(){
+function renderCompleteOrders() {
     completeOrdersBox.innerHTML = "";
     getOrderItemByFilter("status", "complete")
-        .then((res)=>{
-            if (res.length !== 0){
-                res.forEach(item=>{
+        .then((res) => {
+            if (res.length !== 0) {
+                res.forEach(item => {
                     getProductById(item.productId)
-                        .then((product)=>{
-                            completeOrdersBox.innerHTML +=`
+                        .then((product) => {
+                            completeOrdersBox.innerHTML += `
                                     <div class="rounded-2xl shadow-gray-300/70 shadow-lg px-4 py-2 w-full flex gap-2 items-center bg-white">
                                         <div class="h-full rounded-2xl bg-[#f3f3f3] p-1 flex items-center justify-center">
                                           <img src="${product.imageURL[0]}" alt="${product.slug}" class="w-32">
@@ -109,7 +114,7 @@ function renderCompleteOrders(){
                            `
                         })
                 })
-            }else {
+            } else {
                 completeOrdersBox.innerHTML = `
                       <img src="./assets/Images/Doc.png" alt="empty"  class="w-full">
                       <h3 class="text-xl font-semibold text-center ">You Have not  Complete Order Yet</h3>
