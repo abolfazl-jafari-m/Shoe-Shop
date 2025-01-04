@@ -132,7 +132,7 @@ window.deleteDiscount = () => {
 
 function calculateFinalPrice() {
     let finalPrice = Number(totalPrice) + Number(shippingAmount) - promoPrice
-    finalAmount.innerHTML  = "$ " + finalPrice;
+    finalAmount.innerHTML  = "$ " + finalPrice.toFixed(2);
 }
 
 

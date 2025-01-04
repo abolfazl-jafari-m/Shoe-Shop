@@ -33,6 +33,10 @@ export async function getUser() {
             }
         })
         if (!response.ok) {
+            if (response.status === 403){
+                localStorage.removeItem("token");
+                window.location.replace("/public/login.html")
+            }
             throw new Error("user not found")
         }
         const result = await response.json();
