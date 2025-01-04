@@ -9,23 +9,30 @@ const loading = document.getElementById("loading");
 const redirectBackBtn = document.getElementById("redirectBack");
 const showPasswordBtn = document.getElementById("showPass");
 
+const emailPattern =/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 
 signInBtn.addEventListener("click", (e) => {
-    loading.classList.remove("hidden")
-    loading.classList.add("flex")
-    login(email.value, password.value)
-        .then((res) => {
-            if (res) {
-                message("Let's Go", "#065F46");
-                setTimeout(() => {
-                    setAuthTokenInLocalStorage(res.accessToken);
-                    window.location.replace("/public/home.html");
-                }, 2000)
-            }
-        }).finally(() => {
-        loading.classList.add("hidden")
-        loading.classList.remove("flex")
-    })
+    if (emailPattern.test(email.value)){
+        loading.classList.remove("hidden")
+        loading.classList.add("flex")
+        login(email.value, password.value)
+            .then((res) => {
+                if (res) {
+                    message("Let's Go", "#065F46");
+                    setTimeout(() => {
+                        setAuthTokenInLocalStorage(res.accessToken);
+                        window.location.replace("/public/home.html");
+                    }, 2000)
+                }
+            }).finally(() => {
+            loading.classList.add("hidden")
+            loading.classList.remove("flex")
+        })
+    }else {
+        message("Please Enter A Valid Email Format" , "#9F1239")
+    }
+
 
 })
 
