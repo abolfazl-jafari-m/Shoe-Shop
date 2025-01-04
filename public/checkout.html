@@ -12,7 +12,7 @@
 <div class="w-full flex flex-col items-center gap-2">
     <header class="flex w-full justify-between p-4 items-center">
         <div class="flex items-center gap-4">
-            <img src="./assets/Images/back-arrow.svg" class="w-5" alt="back">
+            <img src="./assets/Images/back-arrow.svg" class="w-5" alt="back" id="backBtn">
             <h1 class="font-bold text-xl">Checkout</h1>
         </div>
         <div>
@@ -32,71 +32,29 @@
                         </svg>
                     </div>
                 </div>
-                <div class="flex flex-col gap-1 justify-center">
+                <div class="flex flex-col gap-1 justify-center" id="address-detail">
                     <h4 class="font-semibold text-sm tracking-tight">Home</h4>
                     <p class="opacity-70">Lorem ipsum dolor sit.</p>
                 </div>
             </div>
-            <div>
+            <div id="editAddressBtn">
                 <img src="./assets/Images/pen-2-svgrepo-com.svg" alt="edit" class="w-6">
             </div>
         </div>
     </div>
     <div class="flex flex-col w-full gap-3 px-8 py-4">
         <h3 class="font-semibold tracking-tight text-lg capitalize">orders list</h3>
-        <div class="flex flex-col w-full gap-8">
-            <div class="rounded-3xl shadow-lg shadow-gray-400/70 w-full  flex gap-2 bg-white items-center py-1 px-2">
-                <div class="rounded-3xl bg-[#f3f3f3]  flex items-center justify-center p-1">
-                    <img src="./assets/Images/product-1.png" alt="product" class="w-28">
-                </div>
-                <div class="flex flex-col gap-5 flex-1 h-full px-3 py-2">
-                    <h3 class="font-semibold text-xl">Air Jordan Pro</h3>
-                    <div class="flex items-center gap-2 text-xs tracking-tight ">
-                        <div class="flex items-center gap-2"><span class="bg-black rounded-full w-4 h-4"></span>
-                            Black
-                        </div>
-                        |
-                        <div> size <span class="ml-1"> 42</span></div>
-                    </div>
-                    <div class="flex justify-between items-center w-full ">
-                        <span>105.00$</span>
-                        <div class="bg-gray-200/80 rounded-3xl py-1 px-5 flex items-center gap-2 font-light">
-                            <span>3</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="rounded-3xl shadow-lg shadow-gray-400/70 w-full  flex gap-2 bg-white items-center py-1 px-2">
-                <div class="rounded-3xl bg-[#f3f3f3]  flex items-center justify-center p-1">
-                    <img src="./assets/Images/product-1.png" alt="product" class="w-28">
-                </div>
-                <div class="flex flex-col gap-5 flex-1 h-full px-3 py-2">
-                    <h3 class="font-semibold text-xl">Air Jordan Pro</h3>
-                    <div class="flex items-center gap-2 text-xs tracking-tight ">
-                        <div class="flex items-center gap-2"><span class="bg-black rounded-full w-4 h-4"></span>
-                            Black
-                        </div>
-                        |
-                        <div> size <span class="ml-1"> 42</span></div>
-                    </div>
-                    <div class="flex justify-between items-center w-full ">
-                        <span>105.00$</span>
-                        <div class="bg-gray-200/80 rounded-3xl py-1 px-5 flex items-center gap-2 font-light">
-                            <span>3</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="flex flex-col w-full gap-8" id="orderList">
         </div>
     </div>
     <div class="flex flex-col w-full px-8 py-2 my-2 gap-3">
         <h3 class="font-semibold tracking-tight text-lg">Choose Shipping</h3>
-        <div class="rounded-3xl shadow-lg shadow-gray-400/70 w-full  flex gap-2 bg-white items-center justify-between py-6 px-8">
+        <div class="rounded-3xl shadow-lg shadow-gray-400/70 w-full  flex gap-2 bg-white items-center justify-between py-6 px-6" id="shipping-detail">
             <div class="flex items-center gap-3">
                 <img src="./assets/Images/truck-svgrepo-com.svg" class="w-7" alt="truck">
                 <h4 class="text-lg font-semibold tracking-tight">Choose Shopping Type</h4>
             </div>
-            <div>
+            <div id="chooseShippingBtn">
                 <img src="./assets/Images/right-chevron-svgrepo-com.svg" class="w-7" alt="right">
             </div>
         </div>
@@ -104,10 +62,10 @@
     <div class="flex flex-col w-full gap-4 px-8 py-4 my-2">
         <h3 class="font-semibold tracking-tight text-lg">Promo Code</h3>
         <div class="flex items-center gap-3 ">
-            <div class="flex-1 rounded-2xl bg-gray-200/70 p-2">
-                <input type="text" class="bg-transparent outline-0 border-0 p-2 flex-1" placeholder="Enter Promo Code">
+            <div class="flex-1 rounded-2xl bg-gray-200/70 p-2" id="discountBox">
+                <input type="text" class="bg-transparent outline-0 border-0 p-2 flex-1" placeholder="Enter Promo Code" id="discount-input">
             </div>
-            <div class="bg-black rounded-full p-2 flex items-center justify-center">
+            <div class="bg-black rounded-full p-2 flex items-center justify-center" id="discountBtn">
                 <img src="./assets/Images/plus-svgrepo-com.svg" alt="plus" class="w-6">
             </div>
         </div>
@@ -116,21 +74,23 @@
         <div class="flex flex-col w-full rounded-2xl gap-5 shadow-md shadow-gray-400/70 px-6 py-3">
             <div class="flex items-center justify-between text-black/60 text-xl ">
                 <span>Amount</span>
-                <span class="text-black">$540.00</span>
+                <span class="text-black" id="totalPrice"></span>
             </div>
             <div class="flex items-center justify-between text-black/60 text-xl ">
                 <span>Shipping</span>
-                <span class="text-black">-</span>
+                <span class="text-black" id="shippingPrice">-</span>
+            </div>
+            <div id="discountPrice" class="flex items-center justify-between text-black/60 text-xl">
             </div>
             <hr>
             <div class="flex items-center justify-between text-black/60 text-xl ">
                 <span>Total</span>
-                <span class="text-black">-</span>
+                <span class="text-black" id="finalAmount">-</span>
             </div>
         </div>
     </div>
     <div class="flex items-center justify-center px-8 py-3 my-4">
-        <button class="bg-black shadow-md shadow-black/50 rounded-3xl w-full gap-2 text-white flex items-center justify-center py-3 px-12">
+        <button class="bg-black shadow-md shadow-black/50 rounded-3xl w-full gap-2 text-white flex items-center justify-center py-3 px-12" id="goToPayment">
             Continue to Payment
             <svg class="w-4 rotate-180" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -142,95 +102,230 @@
     </div>
 </div>
 
-<div id="addressModal" class="w-full h-screen fixed top-0 left-0 flex flex-col gap-4 bg-white">
-    <div class="flex items-center gap-3 px-5 py-4">
-        <img src="./assets/Images/back-arrow.svg" class="w-5" alt="back">
-        <h3 class="font-semibold text-xl tracking-tight">Shipping Address</h3>
-    </div>
-    <div class="flex flex-col gap-5 px-8 py-3">
-        <div class="rounded-2xl shadow-md shadow-gray-500/70 flex items-center py-2 px-5 justify-between">
-            <div class="flex items-center gap-2 ">
-                <div class="flex items-center justify-center rounded-full p-2 bg-gray-200">
-                    <div class="rounded-full bg-black w-10 h-10 p-2 flex items-center justify-center">
-                        <svg
-                                class="w-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20.6211 8.45C19.5711 3.83 15.5411 1.75 12.0011 1.75C12.0011 1.75 12.0011 1.75 11.9911 1.75C8.46107 1.75 4.42107 3.82 3.37107 8.44C2.20107 13.6 5.36107 17.97 8.22107 20.72C9.28107 21.74 10.6411 22.25 12.0011 22.25C13.3611 22.25 14.7211 21.74 15.7711 20.72C18.6311 17.97 21.7911 13.61 20.6211 8.45ZM12.0011 13.46C10.2611 13.46 8.85107 12.05 8.85107 10.31C8.85107 8.57 10.2611 7.16 12.0011 7.16C13.7411 7.16 15.1511 8.57 15.1511 10.31C15.1511 12.05 13.7411 13.46 12.0011 13.46Z"
-                                  fill="#fff"/>
-                        </svg>
+<div id="addressModal" class="w-full h-screen fixed top-0 left-0  flex-col justify-between bg-white z-30 hidden motion-preset-shrink motion-duration-700">
+    <div class="flex flex-col gap-4">
+        <div class="flex items-center gap-3 px-5 py-4">
+            <img src="./assets/Images/back-arrow.svg" class="w-5" alt="back" id="closeAddressBtn">
+            <h3 class="font-semibold text-xl tracking-tight">Shipping Address</h3>
+        </div>
+        <div class="flex flex-col gap-5 px-8 py-3">
+            <div class="rounded-2xl shadow-md shadow-gray-500/70 flex items-center py-2 px-5 justify-between">
+                <div class="flex items-center gap-2 ">
+                    <div class="flex items-center justify-center rounded-full p-2 bg-gray-200">
+                        <div class="rounded-full bg-black w-10 h-10 p-2 flex items-center justify-center">
+                            <svg
+                                    class="w-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.6211 8.45C19.5711 3.83 15.5411 1.75 12.0011 1.75C12.0011 1.75 12.0011 1.75 11.9911 1.75C8.46107 1.75 4.42107 3.82 3.37107 8.44C2.20107 13.6 5.36107 17.97 8.22107 20.72C9.28107 21.74 10.6411 22.25 12.0011 22.25C13.3611 22.25 14.7211 21.74 15.7711 20.72C18.6311 17.97 21.7911 13.61 20.6211 8.45ZM12.0011 13.46C10.2611 13.46 8.85107 12.05 8.85107 10.31C8.85107 8.57 10.2611 7.16 12.0011 7.16C13.7411 7.16 15.1511 8.57 15.1511 10.31C15.1511 12.05 13.7411 13.46 12.0011 13.46Z"
+                                      fill="#fff"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1 justify-center">
+                        <div  class="flex items-center gap-3">
+                            <h4 class="font-semibold text-sm tracking-tight">Home</h4>
+                            <span class="bg-gray-200 rounded-md py-1 px-1.5 text-xs">Default</span>
+                        </div>
+                        <p class="opacity-70">Lorem ipsum dolor sit.</p>
                     </div>
                 </div>
-                <div class="flex flex-col gap-1 justify-center">
-                    <h4 class="font-semibold text-sm tracking-tight">Home</h4>
-                    <p class="opacity-70">Lorem ipsum dolor sit.</p>
-                </div>
-            </div>
-            <div>
-                <img src="./assets/Images/pen-2-svgrepo-com.svg" alt="edit" class="w-6">
-            </div>
-        </div>
-        <div class="rounded-2xl shadow-md shadow-gray-500/70 flex items-center py-2 px-5 justify-between">
-            <div class="flex items-center gap-2 ">
-                <div class="flex items-center justify-center rounded-full p-2 bg-gray-200">
-                    <div class="rounded-full bg-black w-10 h-10 p-2 flex items-center justify-center">
-                        <svg
-                                class="w-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20.6211 8.45C19.5711 3.83 15.5411 1.75 12.0011 1.75C12.0011 1.75 12.0011 1.75 11.9911 1.75C8.46107 1.75 4.42107 3.82 3.37107 8.44C2.20107 13.6 5.36107 17.97 8.22107 20.72C9.28107 21.74 10.6411 22.25 12.0011 22.25C13.3611 22.25 14.7211 21.74 15.7711 20.72C18.6311 17.97 21.7911 13.61 20.6211 8.45ZM12.0011 13.46C10.2611 13.46 8.85107 12.05 8.85107 10.31C8.85107 8.57 10.2611 7.16 12.0011 7.16C13.7411 7.16 15.1511 8.57 15.1511 10.31C15.1511 12.05 13.7411 13.46 12.0011 13.46Z"
-                                  fill="#fff"/>
-                        </svg>
+                <div>
+                    <div class="rounded-full ring-2 ring-black ring-offset-1 w-3 h-3 relative flex items-center justify-center overflow-hidden">
+                        <input type="radio" name="address" checked value="home"
+                               class="appearance-none peer absolute w-full h-full top-0 left-0 z-20">
+                        <span class="absolute w-full h-full top-0 left-0 peer-checked:bg-black"></span>
                     </div>
                 </div>
-                <div class="flex flex-col gap-1 justify-center">
-                    <h4 class="font-semibold text-sm tracking-tight">Home</h4>
-                    <p class="opacity-70">Lorem ipsum dolor sit.</p>
-                </div>
             </div>
-            <div>
-                <img src="./assets/Images/pen-2-svgrepo-com.svg" alt="edit" class="w-6">
-            </div>
-        </div>
-        <div class="rounded-2xl shadow-md shadow-gray-500/70 flex items-center py-2 px-5 justify-between">
-            <div class="flex items-center gap-2 ">
-                <div class="flex items-center justify-center rounded-full p-2 bg-gray-200">
-                    <div class="rounded-full bg-black w-10 h-10 p-2 flex items-center justify-center">
-                        <svg
-                                class="w-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20.6211 8.45C19.5711 3.83 15.5411 1.75 12.0011 1.75C12.0011 1.75 12.0011 1.75 11.9911 1.75C8.46107 1.75 4.42107 3.82 3.37107 8.44C2.20107 13.6 5.36107 17.97 8.22107 20.72C9.28107 21.74 10.6411 22.25 12.0011 22.25C13.3611 22.25 14.7211 21.74 15.7711 20.72C18.6311 17.97 21.7911 13.61 20.6211 8.45ZM12.0011 13.46C10.2611 13.46 8.85107 12.05 8.85107 10.31C8.85107 8.57 10.2611 7.16 12.0011 7.16C13.7411 7.16 15.1511 8.57 15.1511 10.31C15.1511 12.05 13.7411 13.46 12.0011 13.46Z"
-                                  fill="#fff"/>
-                        </svg>
+            <div class="rounded-2xl shadow-md shadow-gray-500/70 flex items-center py-2 px-5 justify-between">
+                <div class="flex items-center gap-2 ">
+                    <div class="flex items-center justify-center rounded-full p-2 bg-gray-200">
+                        <div class="rounded-full bg-black w-10 h-10 p-2 flex items-center justify-center">
+                            <svg
+                                    class="w-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.6211 8.45C19.5711 3.83 15.5411 1.75 12.0011 1.75C12.0011 1.75 12.0011 1.75 11.9911 1.75C8.46107 1.75 4.42107 3.82 3.37107 8.44C2.20107 13.6 5.36107 17.97 8.22107 20.72C9.28107 21.74 10.6411 22.25 12.0011 22.25C13.3611 22.25 14.7211 21.74 15.7711 20.72C18.6311 17.97 21.7911 13.61 20.6211 8.45ZM12.0011 13.46C10.2611 13.46 8.85107 12.05 8.85107 10.31C8.85107 8.57 10.2611 7.16 12.0011 7.16C13.7411 7.16 15.1511 8.57 15.1511 10.31C15.1511 12.05 13.7411 13.46 12.0011 13.46Z"
+                                      fill="#fff"/>
+                            </svg>
+                        </div>
                     </div>
-                </div>
-                <div class="flex flex-col gap-1 justify-center">
-                    <h4 class="font-semibold text-sm tracking-tight">Home</h4>
-                    <p class="opacity-70">Lorem ipsum dolor sit.</p>
-                </div>
-            </div>
-            <div>
-                <img src="./assets/Images/pen-2-svgrepo-com.svg" alt="edit" class="w-6">
-            </div>
-        </div>
-        <div class="rounded-2xl shadow-md shadow-gray-500/70 flex items-center py-2 px-5 justify-between">
-            <div class="flex items-center gap-2 ">
-                <div class="flex items-center justify-center rounded-full p-2 bg-gray-200">
-                    <div class="rounded-full bg-black w-10 h-10 p-2 flex items-center justify-center">
-                        <svg
-                                class="w-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20.6211 8.45C19.5711 3.83 15.5411 1.75 12.0011 1.75C12.0011 1.75 12.0011 1.75 11.9911 1.75C8.46107 1.75 4.42107 3.82 3.37107 8.44C2.20107 13.6 5.36107 17.97 8.22107 20.72C9.28107 21.74 10.6411 22.25 12.0011 22.25C13.3611 22.25 14.7211 21.74 15.7711 20.72C18.6311 17.97 21.7911 13.61 20.6211 8.45ZM12.0011 13.46C10.2611 13.46 8.85107 12.05 8.85107 10.31C8.85107 8.57 10.2611 7.16 12.0011 7.16C13.7411 7.16 15.1511 8.57 15.1511 10.31C15.1511 12.05 13.7411 13.46 12.0011 13.46Z"
-                                  fill="#fff"/>
-                        </svg>
-                    </div>
-                </div>
-                <div class="flex flex-col gap-1 justify-center">
-                    <h4 class="font-semibold text-sm tracking-tight">Home</h4>
-                    <p class="opacity-70">Lorem ipsum dolor sit.</p>
-                </div>
-            </div>
-            <div>
-                <img src="./assets/Images/pen-2-svgrepo-com.svg" alt="edit" class="w-6">
-            </div>
-        </div>
+                    <div class="flex flex-col gap-1 justify-center">
 
+                        <h4 class="font-semibold text-sm tracking-tight">Office</h4>
+                        <p class="opacity-70">Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="rounded-full ring-2 ring-black ring-offset-1 w-3 h-3 relative flex items-center justify-center overflow-hidden">
+                        <input type="radio" name="address" value="office"
+                               class="appearance-none peer absolute w-full h-full top-0 left-0 z-20">
+                        <span class="absolute w-full h-full top-0 left-0 peer-checked:bg-black"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-2xl shadow-md shadow-gray-500/70 flex items-center py-2 px-5 justify-between">
+                <div class="flex items-center gap-2 ">
+                    <div class="flex items-center justify-center rounded-full p-2 bg-gray-200">
+                        <div class="rounded-full bg-black w-10 h-10 p-2 flex items-center justify-center">
+                            <svg
+                                    class="w-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.6211 8.45C19.5711 3.83 15.5411 1.75 12.0011 1.75C12.0011 1.75 12.0011 1.75 11.9911 1.75C8.46107 1.75 4.42107 3.82 3.37107 8.44C2.20107 13.6 5.36107 17.97 8.22107 20.72C9.28107 21.74 10.6411 22.25 12.0011 22.25C13.3611 22.25 14.7211 21.74 15.7711 20.72C18.6311 17.97 21.7911 13.61 20.6211 8.45ZM12.0011 13.46C10.2611 13.46 8.85107 12.05 8.85107 10.31C8.85107 8.57 10.2611 7.16 12.0011 7.16C13.7411 7.16 15.1511 8.57 15.1511 10.31C15.1511 12.05 13.7411 13.46 12.0011 13.46Z"
+                                      fill="#fff"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1 justify-center">
+
+                        <h4 class="font-semibold text-sm tracking-tight">Apartment</h4>
+                        <p class="opacity-70">Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="rounded-full ring-2 ring-black ring-offset-1 w-3 h-3 relative flex items-center justify-center overflow-hidden">
+                        <input type="radio" name="address" value="apartment"
+                               class="appearance-none peer absolute w-full h-full top-0 left-0 z-20">
+                        <span class="absolute w-full h-full top-0 left-0 peer-checked:bg-black"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-2xl shadow-md shadow-gray-500/70 flex items-center py-2 px-5 justify-between">
+                <div class="flex items-center gap-2 ">
+                    <div class="flex items-center justify-center rounded-full p-2 bg-gray-200">
+                        <div class="rounded-full bg-black w-10 h-10 p-2 flex items-center justify-center">
+                            <svg
+                                    class="w-7" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M20.6211 8.45C19.5711 3.83 15.5411 1.75 12.0011 1.75C12.0011 1.75 12.0011 1.75 11.9911 1.75C8.46107 1.75 4.42107 3.82 3.37107 8.44C2.20107 13.6 5.36107 17.97 8.22107 20.72C9.28107 21.74 10.6411 22.25 12.0011 22.25C13.3611 22.25 14.7211 21.74 15.7711 20.72C18.6311 17.97 21.7911 13.61 20.6211 8.45ZM12.0011 13.46C10.2611 13.46 8.85107 12.05 8.85107 10.31C8.85107 8.57 10.2611 7.16 12.0011 7.16C13.7411 7.16 15.1511 8.57 15.1511 10.31C15.1511 12.05 13.7411 13.46 12.0011 13.46Z"
+                                      fill="#fff"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1 justify-center">
+
+                        <h4 class="font-semibold text-sm tracking-tight">Parent House</h4>
+                        <p class="opacity-70">Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="rounded-full ring-2 ring-black ring-offset-1 w-3 h-3 relative flex items-center justify-center overflow-hidden">
+                        <input type="radio" name="address" value="parent"
+                               class="appearance-none peer absolute w-full h-full top-0 left-0 z-20">
+                        <span class="absolute w-full h-full top-0 left-0 peer-checked:bg-black"></span>
+                    </div>
+                </div>
+            </div>
+            <button class="bg-gray-300 rounded-3xl text-center py-3 my-3 " >Add New Address</button>
+        </div>
     </div>
+    <div class=" px-8 py-6">
+        <button class="w-full text-center text-white bg-black rounded-3xl shadow-md shadow-black/70 py-3" id="applyAddressBtn">Apply</button>
+    </div>
+
+</div>
+<div id="shippingType" class="w-full h-screen fixed top-0 left-0 hidden flex-col justify-between bg-white z-30 motion-preset-shrink motion-duration-700">
+    <div class="flex flex-col gap-4">
+        <div class="flex items-center gap-3 px-5 py-4">
+            <img src="./assets/Images/back-arrow.svg" class="w-5" alt="back" id="closeShippingBtn">
+            <h3 class="font-semibold text-xl tracking-tight">Choose Shipping</h3>
+        </div>
+        <div class="flex flex-col gap-5 px-8 py-3">
+            <div class="rounded-2xl shadow-md shadow-gray-500/70 flex items-center py-3 px-5 justify-between">
+                <div class="flex items-center gap-2 ">
+                    <div class="flex items-center justify-center rounded-full overflow-hidden">
+                            <img src="./assets/Images/delivery-package-svgrepo-com.svg" class="w-10">
+                    </div>
+                    <div class="flex flex-col gap-1 justify-center">
+                            <h4 class="font-semibold text-sm tracking-tight">Economy</h4>
+                        <p class="opacity-70">Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <label class="font-semibold tracking-tight">
+                        $10
+                    </label>
+                    <div class="rounded-full ring-2 ring-black ring-offset-1 w-3 h-3 relative flex items-center justify-center overflow-hidden">
+                        <input type="radio" name="shipping" checked value="economy"
+                               class="appearance-none peer absolute w-full h-full top-0 left-0 z-20">
+                        <span class="absolute w-full h-full top-0 left-0 peer-checked:bg-black"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-2xl shadow-md shadow-gray-500/70 flex items-center py-3 px-5 justify-between">
+                <div class="flex items-center gap-2 ">
+                    <div class="flex items-center justify-center rounded-full overflow-hidden">
+                            <img src="./assets/Images/delivered-box-verification-symbol-svgrepo-com.svg" class="w-10">
+                    </div>
+                    <div class="flex flex-col gap-1 justify-center">
+                            <h4 class="font-semibold text-sm tracking-tight">Regular</h4>
+                        <p class="opacity-70">Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <label class="font-semibold tracking-tight">
+                        $15
+                    </label>
+                    <div class="rounded-full ring-2 ring-black ring-offset-1 w-3 h-3 relative flex items-center justify-center overflow-hidden">
+                        <input type="radio" name="shipping" value="regular"
+                               class="appearance-none peer absolute w-full h-full top-0 left-0 z-20">
+                        <span class="absolute w-full h-full top-0 left-0 peer-checked:bg-black"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-2xl shadow-md shadow-gray-500/70 flex items-center py-3 px-5 justify-between">
+                <div class="flex items-center gap-2 ">
+                    <div class="flex items-center justify-center rounded-full overflow-hidden">
+                            <img src="./assets/Images/truck-svgrepo-com(1).svg" class="w-10">
+                    </div>
+                    <div class="flex flex-col gap-1 justify-center">
+                            <h4 class="font-semibold text-sm tracking-tight">Cargo</h4>
+                        <p class="opacity-70">Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <label class="font-semibold tracking-tight">
+                        $20
+                    </label>
+                    <div class="rounded-full ring-2 ring-black ring-offset-1 w-3 h-3 relative flex items-center justify-center overflow-hidden">
+                        <input type="radio" name="shipping" value="cargo"
+                               class="appearance-none peer absolute w-full h-full top-0 left-0 z-20">
+                        <span class="absolute w-full h-full top-0 left-0 peer-checked:bg-black"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="rounded-2xl shadow-md shadow-gray-500/70 flex items-center py-3 px-5 justify-between">
+                <div class="flex items-center gap-2 ">
+                    <div class="flex items-center justify-center rounded-full overflow-hidden">
+                            <img src="./assets/Images/logistics-delivery-truck-in-movement-svgrepo-com.svg" class="w-10">
+                    </div>
+                    <div class="flex flex-col gap-1 justify-center">
+                            <h4 class="font-semibold text-sm tracking-tight">Express</h4>
+                        <p class="opacity-70">Lorem ipsum dolor sit.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3">
+                    <label class="font-semibold tracking-tight">
+                        $30
+                    </label>
+                    <div class="rounded-full ring-2 ring-black ring-offset-1 w-3 h-3 relative flex items-center justify-center overflow-hidden">
+                        <input type="radio" name="shipping" value="express"
+                               class="appearance-none peer absolute w-full h-full top-0 left-0 z-20">
+                        <span class="absolute w-full h-full top-0 left-0 peer-checked:bg-black"></span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class=" px-8 py-6">
+        <button class="w-full text-center text-white bg-black rounded-3xl shadow-md shadow-black/70 py-3" id="applyShippingBtn">Apply</button>
+    </div>
+
 </div>
 
+<div class="h-screen w-full bg-black/60 hidden items-center justify-center fixed top-0 left-0 z-50" id="loading">
+    <img src="./assets/Images/Animation%20-%201734367941115.gif" alt="loading"  class="bg-white p-2 rounded-2xl shadow-black/50 shadow-md">
+</div>
+
+<span id="message" class=" fixed top-4 right-4 px-3 py-1 rounded-xl shadow-md shadow-black/50 text-white tracking-tight hidden transition-all duration-300">No Account Found with this information</span>
+
+
+<script src="../src/checkout.js" type="module"></script>
 </body>
 </html>
