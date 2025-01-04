@@ -8,6 +8,10 @@ export async function getProducts() {
             headers: headers
         })
         if (!response.ok) {
+            if (response.status === 403){
+                localStorage.removeItem("token");
+                window.location.replace("/public/login.html")
+            }
             throw new Error("Sorry At the moment Some things Wrong")
         }
         const result = await response.json();

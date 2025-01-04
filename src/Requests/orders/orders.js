@@ -49,3 +49,20 @@ export async function getOrderItemByFilter(key , value){
         message(e.message , "#B91C1C");
     }
 }
+
+export async function updateOrders(id ,items){
+    try{
+        const response = await fetch(`${API_URL}/api/records/orders/${id}` ,{
+            method : "PUT",
+            headers : headers,
+            body : JSON.stringify(items)
+        })
+        if (!response.ok){
+            throw  new Error("update process is failed");
+        }
+        const  result = await  response.json();
+        return result;
+    }catch (e) {
+        message(e.message , "#B91C1C");
+    }
+}

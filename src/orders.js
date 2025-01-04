@@ -11,6 +11,7 @@ const completeOrdersBox = document.getElementById("completeOrders");
 const loading = document.getElementById("loading");
 
 
+
 activeBtn.addEventListener("click", () => {
     activeBtn.classList.remove("text-gray-400")
     activeBtn.classList.remove("border-gray-400")
@@ -37,6 +38,9 @@ completeBtn.addEventListener("click", () => {
     activeTab.classList.remove("flex");
 })
 
+window.trackOrders =() =>{
+    window.location.href = "/public/checkout.html";
+}
 
 function renderActiveOrders() {
     loading.classList.remove("hidden");
@@ -63,16 +67,13 @@ function renderActiveOrders() {
                                           <div class="text-xs tracking-tight font-extralight bg-gray-300 rounded-lg text-center w-fit p-2 my-1 capitalize">${item.status} for payment</div>
                                           <div class="flex justify-between items-center w-full">
                                             <span>$ ${item.quantity * product.price}</span>
-                                            <button class="rounded-2xl py-1 px-3 text-center bg-black text-white text-sm">Track Order</button>
+                                            <button class="rounded-2xl py-1 px-3 text-center bg-black text-white text-sm" onclick="trackOrders()">Track Order</button>
                                           </div>
                                         </div>
                                      </div>
                            `
                         })
-                        .finally(()=>{
-                            loading.classList.remove("flex");
-                            loading.classList.add("hidden");
-                        })
+
                 })
             } else {
                 activeOrdersBox.innerHTML = `
@@ -81,7 +82,10 @@ function renderActiveOrders() {
                       <p class="opacity-70 font-semibold text-center w-full ">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 `
             }
-        })
+        }).finally(()=>{
+        loading.classList.remove("flex");
+        loading.classList.add("hidden");
+    })
 }
 
 function renderCompleteOrders() {
@@ -107,7 +111,9 @@ function renderCompleteOrders() {
                                           <div class="text-xs tracking-tight font-extralight bg-gray-300 rounded-lg text-center w-fit p-2 my-1 capitalize" >${item.status} </div>
                                           <div class="flex justify-between items-center w-full">
                                             <span>$ ${item.quantity * product.price}</span>
-                                            <button class="rounded-2xl py-1 px-3 text-center bg-black text-white text-sm">Track Order</button>
+                                            <a href="/public/products/product.html?id=${product.id}">
+                                            <button class="rounded-2xl py-1 px-3 text-center bg-black text-white text-sm">Buy Again</button>
+                                            </a>
                                           </div>
                                         </div>
                                      </div>
