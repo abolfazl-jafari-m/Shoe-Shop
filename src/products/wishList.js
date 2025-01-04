@@ -45,17 +45,19 @@ function fillerByBrand(brand) {
         .then((res) => {
             if (res.length !==0) {
                 res.forEach(item => {
-                    productBox.innerHTML += `
+                    getProductById(item.productId)
+                        .then(product=>{
+                            productBox.innerHTML += `
                                         <div class="flex flex-col items-center gap-3 relative">
                                         <span class="absolute top-3 right-4 rounded-full bg-black/90 w-7 p-1.5 flex items-center justify-center" onclick="deleteFromFavorite(${item.id})">
                                             <img src="../assets/Images/heart-white.svg" class="w-full" alt="like">
                                         </span>
                                         <div class="rounded-xl flex items-center justify-center p-3 bg-[#F3F3F3] ">
-                                            <img src="${item.imageURL[0]}" alt="${item.slug}" class="w-full">
+                                            <img src="${product.imageURL[0]}" alt="${product.slug}" class="w-full">
                                         </div>
                                         <div class="flex flex-col gap-1 px-1.5">
-                                        <a href="/public/products/product.html?id=${item.id}">
-                                        <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">${item.name}.</h4>
+                                        <a href="/public/products/product.html?id=${product.id}">
+                                        <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">${product.name}.</h4>
                                         </a> 
                                             <div class="flex items-center gap-3">
                                                 <div class="flex items-center gap-1">
@@ -67,10 +69,11 @@ function fillerByBrand(brand) {
                                                     5,455 sold
                                                 </div>
                                             </div>
-                                            <span class="text-[#152536] font-semibold">$ ${item.price}</span>
+                                            <span class="text-[#152536] font-semibold">$ ${product.price}</span>
                                         </div>
                                    </div>
                     `
+                        })
                 })
             }else {
                 productBox.innerHTML = `
