@@ -69,3 +69,20 @@ export async function searchProduct(key , value){
         message(e.message , "#B91C1C")
     }
 }
+
+export async function updateProduct(id , item){
+    try{
+         const response = await fetch(`${API_URL}/api/records/products/${id}`, {
+             method : "PUT",
+             headers : headers,
+             body : JSON.stringify(item)
+         })
+        if (!response.ok){
+            throw  new Error("Product Update Failed")
+        }
+        const result = await response.json();
+        return result;
+    }catch (e) {
+        message(e.message , "#B91C1C")
+    }
+}
