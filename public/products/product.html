@@ -46,42 +46,44 @@
 
     </div>
     <hr class="w-full text-black opacity-70">
-    <div class="flex items-center gap-10 ">
-      <div class="flex flex-col gap-4">
-        <label  class="font-bold text-[#152536] text-xl">Size</label>
-        <div class="flex items-center gap-2"  id="sizes">
+    <div class="flex flex-col gap-5 " id="details">
+      <div class="flex items-center gap-10 ">
+        <div class="flex flex-col gap-4">
+          <label  class="font-bold text-[#152536] text-xl">Size</label>
+          <div class="flex items-center gap-2"  id="sizes">
+          </div>
+
         </div>
+        <div class="flex flex-col gap-4">
+          <label  class="font-bold text-[#152536] text-xl">Color</label>
+          <div class="flex items-center gap-2 overflow-x-scroll no-scrollbar" id="colors" >
+          </div>
 
-      </div>
-      <div class="flex flex-col gap-4">
-        <label  class="font-bold text-[#152536] text-xl">Color</label>
-        <div class="flex items-center gap-2 overflow-x-scroll no-scrollbar" id="colors" >
         </div>
+      </div>
+      <div class="flex items-center gap-5 my-2.5">
+        <span class="font-bold text-lg tracking-tight">Quantity</span>
+        <div class="bg-gray-200/80 rounded-3xl py-2 px-6 flex items-center gap-6 font-semibold text-xl">
+          <button class="text-2xl" id="minusQuantity">-</button>
+          <span id="quantity">1</span>
+          <button class="text-2xl" id="addQuantity">+</button>
+        </div>
+      </div>
+      <hr class="w-full text-black opacity-70">
+      <div class=" w-full flex justify-between px-6 py-3 items-center">
+        <div class="flex flex-col gap-2">
+          <span class="text-xs opacity-40 font-light">total Price</span>
+          <span class="text-2xl font-semibold " id="totalPrice">$ 249.00 </span>
+        </div>
+        <div>
+          <button id="addToCart" class="rounded-3xl py-3 px-8 text-white font-bold flex items-center justify-center gap-5 bg-black shadow-lg shadow-black">
+            <img src="../assets/Images/cart-svgrepo-com.svg" class="w-5">
+            <span>Add to Cart</span>
+          </button>
+        </div>
+      </div>
+    </div>
 
-      </div>
-
-    </div>
-    <div class="flex items-center gap-5 my-2.5">
-      <span class="font-bold text-lg tracking-tight">Quantity</span>
-      <div class="bg-gray-200/80 rounded-3xl py-2 px-6 flex items-center gap-6 font-semibold text-xl">
-        <button class="text-2xl" id="minusQuantity">-</button>
-        <span id="quantity">1</span>
-        <button class="text-2xl" id="addQuantity">+</button>
-      </div>
-    </div>
-    <hr class="w-full text-black opacity-70">
-    <div class=" w-full flex justify-between px-6 py-3 items-center">
-      <div class="flex flex-col gap-2">
-        <span class="text-xs opacity-40 font-light">total Price</span>
-        <span class="text-2xl font-semibold " id="totalPrice">$ 249.00 </span>
-      </div>
-      <div>
-        <button id="addToCart" class="rounded-3xl py-3 px-8 text-white font-bold flex items-center justify-center gap-5 bg-black shadow-lg shadow-black">
-          <img src="../assets/Images/cart-svgrepo-com.svg" class="w-5">
-          <span>Add to Cart</span>
-        </button>
-      </div>
-    </div>
   </div>
 </div>
 

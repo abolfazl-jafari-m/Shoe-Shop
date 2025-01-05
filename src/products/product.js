@@ -20,6 +20,7 @@ const totalPrice = document.getElementById("totalPrice");
 const backBtn = document.getElementById("backBtn");
 const trackSlides = document.getElementById("trackSlides");
 const viewMore = document.getElementById("viewMore");
+const detail = document.getElementById("details");
 
 
 const query = new URLSearchParams(window.location.search);
@@ -130,7 +131,6 @@ viewMore.addEventListener("click", ()=>{
             description.classList.add("line-clamp-2")
             viewMore.innerText = "view More";
         }
-
 })
 
 function renderProduct() {
@@ -174,6 +174,9 @@ function renderProduct() {
                       </div>
                     `
             })
+            if (!res.is_in_inventory){
+                detail.classList.add("invisible");
+            }
         }
     }).finally(() => {
         loading.classList.add("hidden");
