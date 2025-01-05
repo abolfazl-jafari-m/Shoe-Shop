@@ -23,6 +23,13 @@ let totals = null;
 let tempCartItemId = null;
 let tempCartItemQuantity = null;
 
+const color = {
+    white: "bg-white border-black",
+    black: "bg-black/80 border-black ",
+    brown: "bg-amber-800  border-amber-800",
+    blue: "bg-blue-800  border-blue-800",
+    red: "bg-red-800  border-red-800"
+}
 
 window.addQuantity = async (id) => {
     loading.classList.remove("hidden");
@@ -91,6 +98,7 @@ window.showDeleteModal = (id) => {
                 getProductById(res.productId)
                     .then((product) => {
                         if (product) {
+                            let style= color[res.color];
                             deleteModalContent.innerHTML = `
                     <div class="flex items-center w-full gap-2 px-4 py-2 bg-white rounded-2xl">
                         <div class="rounded-3xl bg-[#f3f3f3] overflow-hidden flex items-center justify-center p-1">
@@ -99,7 +107,7 @@ window.showDeleteModal = (id) => {
                         <div class="flex flex-col flex-1 h-full gap-6 px-3 py-2">
                             <h3 class="text-xl font-semibold line-clamp-1">${product.name}</h3>
                             <div class="flex items-center gap-2 text-xs tracking-tight ">
-                                <div class="flex items-center gap-2"><span class="w-4 h-4 bg-black rounded-full"></span>
+                                <div class="flex items-center gap-2"><span class="w-4 h-4 ${style} rounded-full"></span>
                                     ${res.color}
                                 </div>
                                 |
@@ -204,6 +212,7 @@ function render() {
                         getProductById(item.productId)
                             .then(product => {
                                 if (product) {
+                                    let style= color[item.color];
                                     totals += +(product.price * item.quantity);
                                     cartItemsBox.innerHTML += `
                                      <div class="w-full my-2  shadow-gray-500/70 shadow-md rounded-2xl ">
@@ -213,9 +222,9 @@ function render() {
                                                     <img src="${product.imageURL[0]}" alt="${product.slug}" class="w-28">
                                                 </div>
                                                 <div class="flex flex-col flex-1 h-full gap-6 px-1 py-2">
-                                                    <h3 class="text-xl px-2 tracking-tight font-semibold line-clamp-1">${product.name}</h3>
+                                                    <h3 class="text-xl px-2 pl-0.5 tracking-tight font-semibold line-clamp-1">${product.name}</h3>
                                                     <div class="flex items-center gap-2 text-xs tracking-tight ">
-                                                        <div class="flex items-center gap-2"><span class="w-4 h-4 bg-black rounded-full"></span>
+                                                        <div class="flex items-center gap-2"><span class="w-4 h-4 ${style} rounded-full"></span>
                                                             ${item.color}
                                                         </div>
                                                         |

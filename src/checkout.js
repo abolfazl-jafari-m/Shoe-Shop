@@ -24,6 +24,13 @@ const finalAmount =document.getElementById("finalAmount");
 const backBtn = document.getElementById("backBtn");
 const goToPaymentBtn = document.getElementById("goToPayment");
 
+const color = {
+    white: "bg-white border-black",
+    black: "bg-black/80 border-black ",
+    brown: "bg-amber-800  border-amber-800",
+    blue: "bg-blue-800  border-blue-800",
+    red: "bg-red-800  border-red-800"
+}
 
 let addressArray = {
     "home": ["Home", "Lorem ipsum dolor sit."],
@@ -160,6 +167,7 @@ function renderOrders() {
     getOrderItemByFilter("status", "pending")
         .then((res) => {
             res.forEach(item => {
+                let style= color[item.color];
                 getProductById(item.productId)
                     .then((product) => {
                         totalPrice += (+item.quantity * product.price);
@@ -173,7 +181,7 @@ function renderOrders() {
                 <div class="flex flex-col gap-5 flex-1 h-full px-3 py-2">
                     <h3 class="font-semibold text-xl line-clamp-1">${product.name}</h3>
                     <div class="flex items-center gap-2 text-xs tracking-tight ">
-                        <div class="flex items-center gap-2"><span class="bg-black rounded-full w-4 h-4"></span>
+                        <div class="flex items-center gap-2"><span class="${style} rounded-full w-4 h-4"></span>
                             ${item.color}
                         </div>
                         |

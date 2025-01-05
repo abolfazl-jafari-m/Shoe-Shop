@@ -10,6 +10,13 @@ const activeOrdersBox = document.getElementById("activeOrders");
 const completeOrdersBox = document.getElementById("completeOrders");
 const loading = document.getElementById("loading");
 
+const color = {
+    white: "bg-white border-black",
+    black: "bg-black/80 border-black ",
+    brown: "bg-amber-800  border-amber-800",
+    blue: "bg-blue-800  border-blue-800",
+    red: "bg-red-800  border-red-800"
+}
 
 
 activeBtn.addEventListener("click", () => {
@@ -52,6 +59,7 @@ function renderActiveOrders() {
                 res.forEach(item => {
                     getProductById(item.productId)
                         .then((product) => {
+                            let style= color[item.color];
                             activeOrdersBox.innerHTML += `
                                     <div class="rounded-2xl shadow-gray-300/70 shadow-lg px-4 py-2 w-full flex gap-2 items-center bg-white">
                                         <div class="h-full rounded-2xl bg-[#f3f3f3] p-1 flex items-center justify-center">
@@ -60,7 +68,7 @@ function renderActiveOrders() {
                                         <div class="flex flex-col gap-2 flex-1 h-full">
                                           <h3 class="font-semibold">${product.name}</h3>
                                           <div class="flex items-center gap-2 text-xs tracking-tight ">
-                                            <div class="flex items-center gap-2"> <span class="bg-black rounded-full w-4 h-4"></span>${item.color}</div> |
+                                            <div class="flex items-center gap-2"> <span class="${style} rounded-full w-4 h-4"></span>${item.color}</div> |
                                             <div > size <span class="ml-1"> ${item.size}</span> </div> |
                                             <div>  Qty<span class="ml-1"> ${item.quantity}</span> </div>
                                           </div>
@@ -96,6 +104,7 @@ function renderCompleteOrders() {
                 res.forEach(item => {
                     getProductById(item.productId)
                         .then((product) => {
+                            let style= color[item.color];
                             completeOrdersBox.innerHTML += `
                                     <div class="rounded-2xl shadow-gray-300/70 shadow-lg px-4 py-2 w-full flex gap-2 items-center bg-white">
                                         <div class="h-full rounded-2xl bg-[#f3f3f3] p-1 flex items-center justify-center">
@@ -104,7 +113,7 @@ function renderCompleteOrders() {
                                         <div class="flex flex-col gap-2 flex-1 h-full">
                                           <h3 class="font-semibold">${product.name}</h3>
                                           <div class="flex items-center gap-2 text-xs tracking-tight ">
-                                            <div class="flex items-center gap-2"> <span class="bg-black rounded-full w-4 h-4"></span>${item.color}</div> |
+                                            <div class="flex items-center gap-2"> <span class="${style} rounded-full w-4 h-4"></span>${item.color}</div> |
                                             <div > size <span class="ml-1"> ${item.size}</span> </div> |
                                             <div>  Qty<span class="ml-1"> ${item.quantity}</span> </div>
                                           </div>

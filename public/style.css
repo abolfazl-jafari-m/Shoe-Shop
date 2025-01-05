@@ -1981,8 +1981,17 @@ video {
   padding-bottom: 2rem;
 }
 
+.px-2\.5 {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+}
+
 .pt-\[3px\] {
   padding-top: 3px;
+}
+
+.pl-0\.5 {
+  padding-left: 0.125rem;
 }
 
 .text-center {
