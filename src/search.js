@@ -53,9 +53,9 @@ searchBtn.addEventListener("click" , ()=>{
                     res.forEach(item=>{
                         result.innerHTML += `
                                     <div class="flex flex-col items-center gap-3 relative">
-                                            <span class="absolute top-3 right-4 rounded-full bg-black/90 w-7 p-1.5  flex items-center justify-center">
-                                                <img src="./assets/Images/heart-white.svg" class="w-full" alt="like">
-                                            </span>
+<!--                                            <span class="absolute top-3 right-4 rounded-full bg-black/90 w-7 p-1.5  flex items-center justify-center">-->
+<!--                                                <img src="./assets/Images/heart-white.svg" class="w-full" alt="like">-->
+<!--                                            </span>-->
                                     <div class="rounded-xl flex items-center justify-center p-3 bg-[#F3F3F3] ">
                                         <img src="${item.imageURL[0]}" alt="${item.slug}" class="w-full">
                                     </div>
@@ -104,13 +104,18 @@ window.deleteRecent = (index)=>{
     localStorage.setItem("recentSearch" , JSON.stringify(recents));
     renderRecent();
 }
+
+window.fillTheInput =(item) =>{
+    searchInput.value = item;
+    searchBtn.click();
+}
 function renderRecent() {
     recents = JSON.parse(localStorage.getItem('recentSearch')) ?? [];
     resentItem.innerHTML = "";
     recents.forEach((item, index) => {
         resentItem.innerHTML += `
           <div class="flex items-center justify-between text-gray-800/70">
-                    <span>${item}</span>
+                    <span onclick="fillTheInput('${item}')">${item}</span>
                     <span>
                     <img src="./assets/Images/Close%20Square.svg" alt="deleteBtn" class="w-6" onclick="deleteRecent(${index})">
                 </span>
