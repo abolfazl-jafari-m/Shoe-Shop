@@ -18,6 +18,7 @@ const addToCartBtn = document.getElementById("addToCart");
 const quantity = document.getElementById("quantity");
 const totalPrice = document.getElementById("totalPrice");
 const backBtn = document.getElementById("backBtn");
+const trackSlides = document.getElementById("trackSlides");
 
 
 const query = new URLSearchParams(window.location.search);
@@ -33,9 +34,11 @@ const color = {
 
 let liked = false;
 let product = null;
+let slides = null;
+let trackers = null;
 
 
-backBtn.onclick = ()=>{
+backBtn.onclick = () => {
     window.history.back();
 }
 
@@ -46,7 +49,7 @@ addQuantityBtn.onclick = () => {
     }
 }
 minusQuantityBtn.onclick = () => {
-    if (quantity.innerText > 1){
+    if (quantity.innerText > 1) {
         quantity.innerText--;
         calculateTotal();
     }
@@ -56,48 +59,48 @@ function calculateTotal() {
     totalPrice.innerText = "$ " + (quantity.innerText * product.price).toFixed(2);
 }
 
-addToCartBtn.addEventListener("click" , (e)=>{
+addToCartBtn.addEventListener("click", (e) => {
     let item = {
-        productId : product.id,
-        quantity : quantity.innerText,
-        color : document.querySelector("input[name=color]:checked")?.value,
-        size : document.querySelector("input[name=size]:checked")?.value,
+        productId: product.id,
+        quantity: quantity.innerText,
+        color: document.querySelector("input[name=color]:checked")?.value,
+        size: document.querySelector("input[name=size]:checked")?.value,
     }
-    if (!Object.values(item).includes(undefined , null)){
+    if (!Object.values(item).includes(undefined, null)) {
         loading.classList.remove("hidden");
         loading.classList.add("flex");
         addToCart(item)
-            .then((res)=>{
-                if (res){
+            .then((res) => {
+                if (res) {
                     message("Product added to Your Cart", "green");
                 }
-            }).finally(()=>{
+            }).finally(() => {
             loading.classList.remove("flex");
             loading.classList.add("hidden");
         })
-    }else{
-        message("Please Choose Color and Size" , "blue")
+    } else {
+        message("Please Choose Color and Size", "blue")
     }
 })
 
 
-wishListBtn.addEventListener("click", ()=>{
-    if (liked){
+wishListBtn.addEventListener("click", () => {
+    if (liked) {
         removeFromFavorite(liked)
-            .then((res)=>{
-                if (res){
+            .then((res) => {
+                if (res) {
                     wishListBtn.src = "../assets/Images/heart.svg";
-                    liked= null
+                    liked = null
                     message("item remove to your wishlist", "#14532D")
                 }
             })
-    }else {
+    } else {
         addToFavorite({
-            productId : product.id,
-            brand : product.brand
+            productId: product.id,
+            brand: product.brand
         })
-            .then((res)=>{
-                if (res){
+            .then((res) => {
+                if (res) {
                     wishListBtn.src = "../assets/Images/heart-svgrepo-com.svg";
                     liked = res.id;
                     message("item added to your wishlist", "#14532D")
@@ -107,20 +110,42 @@ wishListBtn.addEventListener("click", ()=>{
 
 })
 
+window.goToSlide = (index) => {
+    for (const slide of slides) {
+        slide.classList.add("hidden");
+    }
+    for (const item of trackers) {
+        item.classList.remove("bg-black");
+        item.classList.add("bg-gray-600");
+    }
+    slides[index].classList.remove("hidden");
+    trackers[index].classList.replace("bg-gray-600", "bg-black");
+}
+
 function renderProduct() {
     loading.classList.remove("hidden");
     loading.classList.add("flex");
     getProductById(productId).then((res) => {
+        console.log(res)
         if (res) {
             product = res;
             document.title = res.name;
             name.innerHTML = res.name;
-            totalPrice.innerText = "$ "+ res.price.toFixed(2);
-            res.imageURL.forEach(item=>{
-                images.innerHTML = `
-                <img src="${item}" alt="${res.slug}">
+            totalPrice.innerText = "$ " + res.price.toFixed(2);
+            images.innerHTML = "";
+            trackSlides.innerHTML = "";
+            res.imageURL.forEach((item, index) => {
+                images.innerHTML += `
+                <img src="${item}" alt="${res.slug}" class="images hidden motion-preset-slide-left ">
+                `
+                trackSlides.innerHTML += `
+                <span class="w-8 h-1 rounded-2xl bg-gray-600 tracker" onclick="goToSlide(${index})"></span>
                 `
             })
+            slides = document.getElementsByClassName("images");
+            trackers = document.getElementsByClassName("tracker");
+            slides[0].classList.remove("hidden");
+            trackers[0].classList.replace("bg-gray-600", "bg-black");
             description.innerHTML = res.description;
             res.sizes.forEach(item => {
                 size.innerHTML += `

@@ -988,6 +988,14 @@ video {
   animation: var(--motion-all-loop-and-enter-animations);
 }
 
+.motion-preset-slide-left {
+  --motion-origin-translate-x: 25%;
+  --motion-origin-opacity: 0;
+  --motion-opacity-in-animation: motion-opacity-in calc(var(--motion-opacity-duration) * var(--motion-opacity-perceptual-duration-multiplier)) var(--motion-opacity-timing) var(--motion-opacity-delay) both;
+  --motion-translate-in-animation: motion-translate-in calc(var(--motion-translate-duration) * var(--motion-translate-perceptual-duration-multiplier)) var(--motion-translate-timing) var(--motion-translate-delay) both;
+  animation: var(--motion-all-loop-and-enter-animations);
+}
+
 .motion-preset-slide-right {
   --motion-origin-translate-x: -25%;
   --motion-origin-opacity: 0;
@@ -1144,10 +1152,6 @@ video {
   left: 1.75rem;
 }
 
-.right-2 {
-  right: 0.5rem;
-}
-
 .right-4 {
   right: 1rem;
 }
@@ -1228,10 +1232,6 @@ video {
 
 .mt-4 {
   margin-top: 1rem;
-}
-
-.mt-auto {
-  margin-top: auto;
 }
 
 .line-clamp-1 {
@@ -1539,12 +1539,12 @@ video {
   gap: 1.5rem;
 }
 
-.gap-8 {
-  gap: 2rem;
-}
-
 .gap-7 {
   gap: 1.75rem;
+}
+
+.gap-8 {
+  gap: 2rem;
 }
 
 .gap-x-12 {
@@ -1554,10 +1554,6 @@ video {
 
 .gap-y-7 {
   row-gap: 1.75rem;
-}
-
-.self-end {
-  align-self: flex-end;
 }
 
 .overflow-hidden {
@@ -2165,11 +2161,6 @@ video {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
-.shadow-black\/40 {
-  --tw-shadow-color: rgb(0 0 0 / 0.4);
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
 .shadow-black\/50 {
   --tw-shadow-color: rgb(0 0 0 / 0.5);
   --tw-shadow: var(--tw-shadow-colored);
@@ -2190,18 +2181,13 @@ video {
   --tw-shadow: var(--tw-shadow-colored);
 }
 
-.shadow-gray-500\/70 {
-  --tw-shadow-color: rgb(107 114 128 / 0.7);
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
-.shadow-gray-500\/40 {
-  --tw-shadow-color: rgb(107 114 128 / 0.4);
-  --tw-shadow: var(--tw-shadow-colored);
-}
-
 .shadow-gray-500\/60 {
   --tw-shadow-color: rgb(107 114 128 / 0.6);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+
+.shadow-gray-500\/70 {
+  --tw-shadow-color: rgb(107 114 128 / 0.7);
   --tw-shadow: var(--tw-shadow-colored);
 }
 
