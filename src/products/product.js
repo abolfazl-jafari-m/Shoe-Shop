@@ -19,6 +19,7 @@ const quantity = document.getElementById("quantity");
 const totalPrice = document.getElementById("totalPrice");
 const backBtn = document.getElementById("backBtn");
 const trackSlides = document.getElementById("trackSlides");
+const viewMore = document.getElementById("viewMore");
 
 
 const query = new URLSearchParams(window.location.search);
@@ -116,17 +117,26 @@ window.goToSlide = (index) => {
     }
     for (const item of trackers) {
         item.classList.remove("bg-black");
-        item.classList.add("bg-gray-600");
+        item.classList.add("bg-gray-400");
     }
     slides[index].classList.remove("hidden");
-    trackers[index].classList.replace("bg-gray-600", "bg-black");
+    trackers[index].classList.replace("bg-gray-400", "bg-black");
 }
+viewMore.addEventListener("click", ()=>{
+        if (viewMore.innerText === "View More"){
+            description.classList.remove("line-clamp-2")
+            viewMore.innerText = "view Less";
+        }else {
+            description.classList.add("line-clamp-2")
+            viewMore.innerText = "view More";
+        }
+
+})
 
 function renderProduct() {
     loading.classList.remove("hidden");
     loading.classList.add("flex");
     getProductById(productId).then((res) => {
-        console.log(res)
         if (res) {
             product = res;
             document.title = res.name;
@@ -139,14 +149,14 @@ function renderProduct() {
                 <img src="${item}" alt="${res.slug}" class="images hidden motion-preset-slide-left ">
                 `
                 trackSlides.innerHTML += `
-                <span class="w-8 h-1 rounded-2xl bg-gray-600 tracker" onclick="goToSlide(${index})"></span>
+                <span class="w-8 h-1 rounded-2xl bg-gray-400 tracker" onclick="goToSlide(${index})"></span>
                 `
             })
             slides = document.getElementsByClassName("images");
             trackers = document.getElementsByClassName("tracker");
             slides[0].classList.remove("hidden");
-            trackers[0].classList.replace("bg-gray-600", "bg-black");
-            description.innerHTML = res.description;
+            trackers[0].classList.replace("bg-gray-400", "bg-black");
+            description.innerHTML = res.description ;
             res.sizes.forEach(item => {
                 size.innerHTML += `
                         <div  class="p-2 relative w-8 h-8  flex justify-center items-center overflow-hidden">

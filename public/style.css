@@ -1255,6 +1255,10 @@ video {
   -webkit-line-clamp: 3;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .flex {
   display: flex;
 }
@@ -2067,6 +2071,10 @@ video {
 
 .tracking-tight {
   letter-spacing: -0.025em;
+}
+
+.tracking-tighter {
+  letter-spacing: -0.05em;
 }
 
 .text-\[\#152536\] {
