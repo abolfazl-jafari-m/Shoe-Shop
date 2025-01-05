@@ -21,9 +21,34 @@
             </div>
         </div>
         <div class="flex gap-4 items-center">
-            <button>
-                <img src="./assets/Images/ring.svg" alt="ring" class="w-6">
-            </button>
+            <div class="relative flex items-center justify-center">
+                <button id="notifications">
+                    <img src="./assets/Images/ring.svg" alt="ring" class="w-6">
+                </button>
+                <div id="notificationBox" class="absolute top-8 -right-3 rounded-3xl px-10 py-5 bg-white shadow-md shadow-gray-900/80 hidden flex-col gap-3 items-center w-fit motion-preset-expand ">
+                    <div class="flex items-center justify-center gap-3  w-full">
+                        <img src="./assets/Images/notification-alert-left-2-svgrepo-com.svg" alt="notification"
+                             class="w-10">
+                        <div class="flex flex-col gap-2">
+                            <h3 class="text-sm tracking-tight font-bold text-nowrap ">You're Having Un Payed Orders</h3>
+                            <p class="opacity-70  line-clamp-2">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                elit.</p>
+                            <span class="text-rose-900 text-xs tracking-tighter">Go To Action</span>
+                        </div>
+                    </div>
+                    <hr class="bg-black h-2">
+                    <div class="flex items-center justify-center gap-3 px-2 py-1 w-full">
+                        <img src="./assets/Images/notification-alert-left-2-svgrepo-com.svg" alt="notification"
+                             class="w-10">
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-sm tracking-tight font-bold text-nowrap ">You're Having Un Payed Orders</h3>
+                            <p class="opacity-70  line-clamp-2">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                elit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <button id="wishList">
                 <img src="./assets/Images/heart.svg" alt="ring" class="w-6">
             </button>
@@ -108,7 +133,8 @@
         </a>
     </div>
     <div class="flex items-center gap-3 px-6 overflow-x-scroll py-0.5 no-scrollbar " id="filtersBtn">
-        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold bg-[#343A40] text-white" >All</button>
+        <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold bg-[#343A40] text-white">All
+        </button>
         <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold">Nike</button>
         <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold">Adidas</button>
         <button class="rounded-3xl border-2 border-[#343A40] px-5 py-2.5 font-semibold">Puma</button>
@@ -155,7 +181,8 @@
 </nav>
 
 <div class="h-screen w-full bg-black/60 hidden items-center justify-center fixed top-0 left-0 z-50" id="loading">
-    <img src="./assets/Images/Animation%20-%201734367941115.gif" alt="loading"  class="bg-white p-2 rounded-2xl shadow-black/50 shadow-md">
+    <img src="./assets/Images/Animation%20-%201734367941115.gif" alt="loading"
+         class="bg-white p-2 rounded-2xl shadow-black/50 shadow-md">
 </div>
 
 <script src="../src/home.js" type="module"></script>

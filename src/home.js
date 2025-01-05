@@ -8,6 +8,8 @@ const loading = document.getElementById("loading");
 const wishList = document.getElementById("wishList");
 const search = document.getElementById('search');
 const welcomeMessage = document.getElementById("welcomeMessage");
+const notificationBtn = document.getElementById("notifications");
+const notificationBox = document.getElementById("notificationBox");
 
 
 const searchBox = document.getElementById("searchBox")
@@ -35,6 +37,11 @@ for (const btn of filtersBtn) {
         fillerByBrand(btn.innerText)
     })
 }
+
+notificationBtn.addEventListener("click", ()=>{
+    notificationBox.classList.toggle("hidden" );
+    notificationBox.classList.toggle("flex" );
+})
 
 function fillerByBrand(brand) {
     brand = (brand !== "All") ? brand : "";
