@@ -34,7 +34,12 @@ async function confirmHandler(){
             for (const item of ordersItem) {
                 await updateOrders(item.id, {status: "complete"});
                 const product = await getProductById(item.productId)
-                await updateProduct(product.id , {items_left : Number(product.items_left) - Number(item.quantity)});
+                let items_left =  Number(product.items_left) - Number(item.quantity);
+                if (items_left){
+                    await updateProduct(product.id , {items_left : items_left});
+                }else {
+                    await updateProduct(product.id , {items_left : items_left , is_in_inventory : false});
+                }
             }
         }
     }catch (e) {
