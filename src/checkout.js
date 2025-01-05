@@ -90,6 +90,7 @@ applyAddressBtn.addEventListener("click", () => {
 })
 
 applyShippingBtn.addEventListener("click", () => {
+    goToPaymentBtn.disabled = false;
     let selectedShipping = document.querySelector("input[name=shipping]:checked").value;
     let [title, price, picture, detail] = shippingTypes[selectedShipping];
     shippingDetail.innerHTML = `

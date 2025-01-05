@@ -98,7 +98,7 @@ window.showDeleteModal = (id) => {
                 getProductById(res.productId)
                     .then((product) => {
                         if (product) {
-                            let style= color[res.color];
+                            let style = color[res.color];
                             deleteModalContent.innerHTML = `
                     <div class="flex items-center w-full gap-2 px-4 py-2 bg-white rounded-2xl">
                         <div class="rounded-3xl bg-[#f3f3f3] overflow-hidden flex items-center justify-center p-1">
@@ -196,6 +196,7 @@ function render() {
         .then(res => {
             if (res) {
                 if (res.length === 0) {
+                    checkoutBtn.classList.add("hidden")
                     totalAllPrice.innerText = "$ " + totals.toFixed(2);
                     cartItemsBox.innerHTML = `
                       <div class="items-center justify-center  w-full">
@@ -212,7 +213,7 @@ function render() {
                         getProductById(item.productId)
                             .then(product => {
                                 if (product) {
-                                    let style= color[item.color];
+                                    let style = color[item.color];
                                     totals += +(product.price * item.quantity);
                                     cartItemsBox.innerHTML += `
                                      <div class="w-full my-2  shadow-gray-500/70 shadow-md rounded-2xl ">
