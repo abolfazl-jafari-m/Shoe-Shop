@@ -142,7 +142,6 @@ closeDeleteModal.addEventListener("click", () => {
 
 removeFromCart.addEventListener("click", () => {
     const deleteCount = document.getElementById("deleteCount")?.innerText;
-    console.log(deleteCount, tempCartItemQuantity);
     if (+deleteCount === +tempCartItemQuantity) {
         deleteFromCart(tempCartItemId)
             .then((res) => {

@@ -25,7 +25,8 @@ signInBtn.addEventListener("click", (e) => {
                         window.location.replace("/public/home.html");
                     }, 2000)
                 }
-            }).finally(() => {
+            })
+            .finally(() => {
             loading.classList.add("hidden")
             loading.classList.remove("flex")
         })

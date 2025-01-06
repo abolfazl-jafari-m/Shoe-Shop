@@ -1,7 +1,7 @@
 import {getProductById} from "../Requests/products/products.js";
 import {addToCart} from "../Requests/cart/cart.js";
 import {message} from "../utils/helper.js";
-import {addToFavorite, removeFromFavorite} from "../Requests/wishList/wishList.js";
+import {addToFavorite, getProductByProductId, removeFromFavorite} from "../Requests/wishList/wishList.js";
 
 const loading = document.getElementById("loading");
 const name = document.getElementById("name");
@@ -133,12 +133,22 @@ viewMore.addEventListener("click", ()=>{
         }
 })
 
+async  function checkedISLiked(){
+    const response = await getProductByProductId(productId);
+    if (response.length !== 0){
+        wishListBtn.src = "../assets/Images/heart-svgrepo-com.svg";
+        liked = response[0].id;
+    }
+}
+
 function renderProduct() {
     loading.classList.remove("hidden");
     loading.classList.add("flex");
+    checkedISLiked();
     getProductById(productId).then((res) => {
         if (res) {
             product = res;
+
             document.title = res.name;
             name.innerHTML = res.name;
             totalPrice.innerText = "$ " + res.price.toFixed(2);

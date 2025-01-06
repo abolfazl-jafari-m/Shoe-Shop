@@ -68,3 +68,19 @@ export async function getFavoritesByFilter(key , value){
         message(e.message , "#B91C1C");
     }
 }
+
+export async function getProductByProductId(id){
+    try{
+        const  response =  await fetch(`${API_URL}/api/records/wishList?filterKey=productId&filterValue=${id}`, {
+            method : "GET",
+            headers : headers
+        })
+        if (!response.ok){
+            throw  new Error("Couldn't Receive Data")
+        }
+         const result = await response.json();
+        return result.records;
+    }catch (e) {
+        message(e.message , "#B91C1C");
+    }
+}
