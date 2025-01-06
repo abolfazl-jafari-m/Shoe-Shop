@@ -123,19 +123,19 @@ window.goToSlide = (index) => {
     slides[index].classList.remove("hidden");
     trackers[index].classList.replace("bg-gray-400", "bg-black");
 }
-viewMore.addEventListener("click", ()=>{
-        if (viewMore.innerText === "View More"){
-            description.classList.remove("line-clamp-2")
-            viewMore.innerText = "view Less";
-        }else {
-            description.classList.add("line-clamp-2")
-            viewMore.innerText = "view More";
-        }
+viewMore.addEventListener("click", () => {
+    if (viewMore.innerText === "View More") {
+        description.classList.remove("line-clamp-2")
+        viewMore.innerText = "view Less";
+    } else {
+        description.classList.add("line-clamp-2")
+        viewMore.innerText = "view More";
+    }
 })
 
-async  function checkedISLiked(){
+async function checkedISLiked() {
     const response = await getProductByProductId(productId);
-    if (response.length !== 0){
+    if (response.length !== 0) {
         wishListBtn.src = "../assets/Images/heart-svgrepo-com.svg";
         liked = response[0].id;
     }
@@ -154,19 +154,22 @@ function renderProduct() {
             totalPrice.innerText = "$ " + res.price.toFixed(2);
             images.innerHTML = "";
             trackSlides.innerHTML = "";
-            res.imageURL.forEach((item, index) => {
+            res.imageURL.forEach((item, index, array) => {
                 images.innerHTML += `
                 <img src="${item}" alt="${res.slug}" class="images hidden motion-preset-slide-left ">
                 `
-                trackSlides.innerHTML += `
-                <span class="w-8 h-1 rounded-2xl bg-gray-400 tracker" onclick="goToSlide(${index})"></span>
+                if (array.length !== 1) {
+                    trackSlides.innerHTML += `
+                    <span class="w-8 h-1 rounded-2xl bg-gray-400 tracker" onclick="goToSlide(${index})"></span>
                 `
+                }
+
             })
             slides = document.getElementsByClassName("images");
             trackers = document.getElementsByClassName("tracker");
             slides[0].classList.remove("hidden");
             trackers[0].classList.replace("bg-gray-400", "bg-black");
-            description.innerHTML = res.description ;
+            description.innerHTML = res.description;
             res.sizes.forEach(item => {
                 size.innerHTML += `
                         <div  class="p-2 relative w-8 h-8  flex justify-center items-center overflow-hidden">
@@ -184,7 +187,7 @@ function renderProduct() {
                       </div>
                     `
             })
-            if (!res.is_in_inventory){
+            if (!res.is_in_inventory) {
                 detail.classList.add("invisible");
             }
         }
