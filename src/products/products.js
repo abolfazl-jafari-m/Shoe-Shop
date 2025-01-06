@@ -5,6 +5,8 @@ const loading = document.getElementById("loading");
 const backBtn = document.getElementById("back");
 const filtersBtn = document.getElementById("filtersBtn").children;
 
+let products = [];
+
 backBtn.onclick = () => {
     window.location.href = "/public/home.html";
 }
@@ -22,15 +24,14 @@ for (const btn of filtersBtn) {
 }
 
 function fillerByBrand(brand) {
-    brand = (brand !== "All") ? brand : "";
-    loading.classList.remove("hidden")
-    loading.classList.add("flex");
+    brand = (brand !== "All") ? brand : undefined;
     productsBox.innerHTML = "";
-    getProductsByFilter("brand", brand.toUpperCase())
-        .then((res) => {
-            if (res) {
-                res.forEach(item => {
-                    productsBox.innerHTML += `
+    if (brand){
+        let filteredProduct = products.filter(item=>{
+            return item.brand === brand.toUpperCase();
+        })
+        filteredProduct.forEach(item=>{
+            productsBox.innerHTML += `
                      <a href="/public/products/product.html?id=${item.id}">
                         <div class="flex flex-col items-center gap-3">
                             <div class="rounded-xl flex items-center justify-center p-3 bg-[#F6F6F6] ">
@@ -43,12 +44,11 @@ function fillerByBrand(brand) {
                         </div>
                   </a>
                     `
-                })
-            }
-        }).finally(() => {
-        loading.classList.add("hidden");
-        loading.classList.remove("flex");
-    })
+        })
+    }else {
+        render();
+    }
+
 }
 
 
@@ -57,9 +57,10 @@ function render() {
     loading.classList.remove("hidden");
     loading.classList.add("flex");
     productsBox.innerHTML = "";
-    getProducts()
+    getProductsByFilter("isPopular", true)
         .then((res) => {
             if (res) {
+                products = res;
                 res.forEach(item => {
                     productsBox.innerHTML += `
                      <a href="/public/products/product.html?id=${item.id}">
