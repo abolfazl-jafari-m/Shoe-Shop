@@ -9,6 +9,104 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+<div class="flex flex-col gap-2 w-full">
+    <div class="flex items-center gap-3 px-6 py-4">
+        <img src="./assets/Images/back-arrow.svg" alt="back" class="w-5" id="backBtn">
+        <h1 class="font-bold text-xl tracking-tight">Wallet</h1>
+    </div>
+    <div class="flex justify-center items-center py-3 px-8 w-full">
+        <div class="rounded-3xl shadow-lg px-5 py-4 bg-gradient-to-r from-[#581C87] to-[#6D28D9] shadow-[#6D28D9] w-full h-44 flex flex-col justify-between text-white">
+            <div class="flex items-center justify-between">
+                <div class="flex flex-col gap1">
+                    <h3 class="font-bold text-2xl">Wallet</h3>
+                    <span class="font-light text-lg">$ 540.00</span>
+                </div>
+                <div>
+                    <img src="./assets/Images/credit-card-svgrepo-com.svg" alt="payPal" class="w-20">
+                </div>
+            </div>
+            <div class="w-full flex justify-center tracking-widest text-lg my-2 ">
+                6396 0712 1710 9405
+            </div>
+        </div>
+    </div>
+    <div class="grid-cols-2  grid  gap-3 py-3 px-10">
+        <div class="rounded-xl p-2 bg-[#E11D48] flex flex-col gap-2 items-center justify-center text-white">
+            <img src="./assets/Images/money-recive-svgrepo-com.svg" alt="receive" class="w-10">
+            <span class="font-semibold text-center text-nowrap">Rise Money</span>
+        </div>
+        <div class="rounded-xl p-2 bg-[#F97316] flex flex-col gap-2 items-center justify-center text-white">
+            <img src="./assets/Images/give-money-svgrepo-com.svg" alt="receive" class="w-10">
+            <span class="font-semibold text-center text-nowrap">Withdraw money</span>
+        </div>
+    </div>
+    <div class="flex flex-col gap-4 px-8 py-4">
+        <h3 class="font-semibold text-lg">History</h3>
+        <div class="flex flex-col gap-3 px-3">
+            <div class="flex items-center gap-5 rounded-xl  bg  py-3 px-5 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] ">
+                <img src="./assets/Images/up-trend-round-svgrepo-com.svg" class="w-8" alt="receive">
+                <div class="flex flex-col gap-2">
+                    <span>+ $450.00</span>
+                    <span>Lorem ipsum dolor sit amet.</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-5 rounded-xl  bg  py-3 px-5 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] ">
+                <img src="./assets/Images/down-trend-round-svgrepo-com.svg" class="w-8" alt="receive">
+                <div class="flex flex-col gap-2">
+                    <span>- $650.00</span>
+                    <span>Lorem ipsum dolor sit amet.</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-5 rounded-xl  bg  py-3 px-5 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] ">
+                <img src="./assets/Images/down-trend-round-svgrepo-com.svg" class="w-8" alt="receive">
+                <div class="flex flex-col gap-2">
+                    <span>- $150.00</span>
+                    <span>Lorem ipsum dolor sit amet.</span>
+                </div>
+            </div>
+        </div>
 
+    </div>
+</div>
+
+
+<nav class="fixed bottom-0 w-full left-0 px-1 py-3 z-40 flex items-center justify-evenly bg-white text-black">
+    <a href="/public/home.html">
+        <div class="flex flex-col items-center gap-1">
+            <img src="./assets/Images/home.png" class="w-6" alt="home">
+            <span class="tracking-tight text-xs text-center">Home</span>
+        </div>
+    </a>
+    <a href="/public/cart.html">
+        <div class="flex flex-col items-center gap-1">
+            <img src="./assets/Images/bag.svg" class="w-6" alt="cart">
+            <span class="tracking-tight text-xs text-center">Cart</span>
+        </div>
+    </a>
+    <a href="/public/orders.html">
+        <div class="flex flex-col items-center gap-1">
+            <img src="./assets/Images/cart2.svg" class="w-6" alt="order">
+            <span class="tracking-tight text-xs text-center">Order</span>
+        </div>
+    </a>
+    <a href="/public/wallet.html">
+        <div class="flex flex-col items-center gap-1">
+            <img src="./assets/Images/home-icon/wallet-select.png" class="w-6" alt="wallet">
+            <span class="tracking-tight text-xs text-center">Wallet</span>
+        </div>
+    </a>
+    <a href="/public/profile.html">
+        <div class="flex flex-col items-center gap-1">
+            <img src="./assets/Images/person.svg" class="w-6" alt="profile">
+            <span class="tracking-tight text-xs text-center">Profile</span>
+        </div>
+    </a>
+</nav>
+
+<script>
+    document.getElementById("backBtn").addEventListener("click", () => {
+        window.history.back();
+    })
+</script>
 </body>
 </html>

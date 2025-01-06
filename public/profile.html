@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css">
+    <title>My Profile</title>
+</head>
+<body>
+<div class="flex flex-col gap-3.5 w-full px-8 py-24 justify-around h-screen">
+    <div class="flex items-center justify-center">
+        <div class=" relative">
+            <div class="ring-4 ring-indigo-700 ring-offset-4 w-24 h-24 rounded-full overflow-hidden">
+                <img src="./assets/Images/profile.png" alt="profile" class="w-full h-full" id="profile">
+            </div>
+            <span class="absolute -bottom-2.5 right-0.5 rounded-full bg-indigo-950 p-2 z-20">
+                <img src="./assets/Images/pen-svgrepo-com.svg" alt="edit" class="w-5">
+            </span>
+        </div>
+    </div>
+    <div class="flex flex-col gap-3 items-center">
+        <div class="flex items-center gap-2 justify-between w-full rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] px-4 py-3">
+            <div class="flex items-center gap-3">
+                <div class="rounded-full w-12 h-12 bg-indigo-800 overflow-hidden p-3">
+                    <img src="./assets/Images/cart-check-svgrepo-com.svg" alt="orders" class="w-full h-full">
+                </div>
+                <span class="font-bold text-indigo-900 text-xl">My Orders</span>
+            </div>
+            <div>
+                <a href="/public/orders.html">
+                    <img src="./assets/Images/right-2-svgrepo-com.svg" alt="arrowGo" class="w-8">
+                </a>
+
+            </div>
+        </div>
+        <div class="flex items-center gap-2 justify-between w-full rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] px-4 py-3">
+            <div class="flex items-center gap-3">
+                <div class="rounded-full w-12 h-12 bg-indigo-800 overflow-hidden p-3">
+                    <img src="./assets/Images/cart-svgrepo-com (1).svg" alt="orders" class="w-full h-full">
+                </div>
+                <span class="font-bold text-indigo-900 text-xl">My Cart</span>
+            </div>
+            <div>
+                <a href="/public/cart.html">
+                    <img src="./assets/Images/right-2-svgrepo-com.svg" alt="arrowGo" class="w-8">
+                </a>
+
+            </div>
+        </div>
+        <div class="flex items-center gap-2 justify-between w-full rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] px-4 py-3">
+            <div class="flex items-center gap-3">
+                <div class="rounded-full w-12 h-12 bg-indigo-800 overflow-hidden p-3">
+                    <img src="./assets/Images/wallet-svgrepo-com.svg" alt="orders" class="w-full h-full">
+                </div>
+                <span class="font-bold text-indigo-900 text-xl">My Wallet</span>
+            </div>
+            <div>
+                <a href="/public/wallet.html">
+                    <img src="./assets/Images/right-2-svgrepo-com.svg" alt="arrowGo" class="w-8">
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <div class="w-full px-8 py-4">
+        <button id="signOutBtn" class="w-full rounded-2xl bg-indigo-950 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(45,78,255,0.15)] py-4 text-white flex justify-center items-center gap-3">
+            <span>
+                Sign Out
+            </span>
+            <img src="./assets/Images/exit-svgrepo-com.svg" alt="exit" class="w-5">
+        </button>
+    </div>
+
+</div>
+
+
+
+<span id="message" class=" fixed top-4 right-4 px-3 py-1 rounded-xl shadow-md shadow-black/50 text-white tracking-tight hidden transition-all duration-300">No Account Found with this information</span>
+
+<div class="h-screen w-full bg-black/40  items-center justify-center fixed top-0 left-0 hidden z-40" id="loading">
+    <img src="../public/assets/Images/Animation%20-%201734367941115.gif" class="bg-white p-4 rounded-2xl shadow-black/50 shadow-md" alt="loading">
+</div>
+
+
+<nav class="fixed bottom-0 w-full left-0 px-1 py-3 z-40 flex items-center justify-evenly bg-white text-black">
+    <a href="/public/home.html">
+        <div class="flex flex-col items-center gap-1">
+            <img src="./assets/Images/home.png" class="w-6" alt="home">
+            <span class="tracking-tight text-xs text-center">Home</span>
+        </div>
+    </a>
+    <a href="/public/cart.html">
+        <div class="flex flex-col items-center gap-1">
+            <img src="./assets/Images/bag.svg" class="w-6" alt="cart">
+            <span class="tracking-tight text-xs text-center">Cart</span>
+        </div>
+    </a>
+    <a href="/public/orders.html">
+        <div class="flex flex-col items-center gap-1">
+            <img src="./assets/Images/cart2.svg" class="w-6" alt="order">
+            <span class="tracking-tight text-xs text-center">Order</span>
+        </div>
+    </a>
+    <a href="/public/wallet.html">
+        <div class="flex flex-col items-center gap-1">
+            <img src="./assets/Images/wallet2.svg" class="w-6" alt="wallet">
+            <span class="tracking-tight text-xs text-center">Wallet</span>
+        </div>
+    </a>
+    <a href="/public/profile.html">
+        <div class="flex flex-col items-center gap-1">
+            <img src="./assets/Images/home-icon/profile-select.png" class="w-6" alt="profile">
+            <span class="tracking-tight text-xs text-center">Profile</span>
+        </div>
+    </a>
+</nav>
+
+<script src="../src/profile.js" type="module"></script>
+</body>
+</html>
