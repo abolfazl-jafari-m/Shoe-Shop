@@ -53,17 +53,17 @@ searchBtn.addEventListener("click" , ()=>{
                     res.forEach(item=>{
                         result.innerHTML += `
                                     <div class="flex flex-col items-center gap-3 relative">
-<!--                                            <span class="absolute top-3 right-4 rounded-full bg-black/90 w-7 p-1.5  flex items-center justify-center">-->
-<!--                                                <img src="./assets/Images/heart-white.svg" class="w-full" alt="like">-->
-<!--                                            </span>-->
+                                            <span class="absolute top-3 right-4 rounded-full bg-black/90 w-7 p-1.5  flex items-center justify-center">
+                                                <img src="./assets/Images/heart-white.svg" class="w-full" alt="like">
+                                            </span>
                                     <div class="rounded-xl flex items-center justify-center p-3 bg-[#F3F3F3] ">
                                         <img src="${item.imageURL[0]}" alt="${item.slug}" class="w-full">
                                     </div>
-                                    <div class="flex flex-col gap-1 px-1.5">
+                                    <div class="flex flex-col gap-1 px-1.5 w-full">
                                         <a href="/public/products/product.html?id=${item.id}">
                                             <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">${item.name}</h4>
                                         </a>
-                                        <div class="flex items-center gap-3">
+                                        <div class="flex items-center gap-3 w-full">
                                             <div class="flex items-center gap-1">
                                                 <img src="./assets/Images/star-svgrepo-com.svg" alt="rate" class="w-4">
                                                 <span class="text-xs font-light opacity-80">4,3</span>
