@@ -148,7 +148,6 @@ function renderProduct() {
     getProductById(productId).then((res) => {
         if (res) {
             product = res;
-
             document.title = res.name;
             name.innerHTML = res.name;
             totalPrice.innerText = "$ " + res.price.toFixed(2);
@@ -168,7 +167,7 @@ function renderProduct() {
             slides = document.getElementsByClassName("images");
             trackers = document.getElementsByClassName("tracker");
             slides[0].classList.remove("hidden");
-            trackers[0].classList.replace("bg-gray-400", "bg-black");
+            trackers[0]?.classList.replace("bg-gray-400", "bg-black");
             description.innerHTML = res.description;
             res.sizes.forEach(item => {
                 size.innerHTML += `
