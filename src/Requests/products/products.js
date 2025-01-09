@@ -44,6 +44,10 @@ export async function getProductById(id){
             headers : headers
         })
         if (!response.ok){
+            if (response.status === 403){
+                localStorage.removeItem("token");
+                window.location.replace("/public/login.html")
+            }
             throw new Error("Please Try Later")
         }
         const result = await response.json();

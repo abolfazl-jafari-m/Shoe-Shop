@@ -37,7 +37,7 @@ function fillerByBrand(brand) {
                             <div class="rounded-xl flex items-center justify-center p-3 bg-[#F6F6F6] ">
                                 <img src="${item.imageURL[0]}" alt="${item.slug}" class="w-36 h-36">
                             </div>
-                            <div class="flex flex-col gap-2 px-1">
+                            <div class="flex flex-col gap-2 px-1 w-full">
                                 <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">${item.name}</h4>
                                 <span class="text-[#152536] font-semibold">$ ${item.price}</span>
                             </div>
