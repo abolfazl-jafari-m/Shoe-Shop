@@ -68,7 +68,7 @@ function renderActiveOrders() {
                                         <div class="flex flex-col gap-2 flex-1 h-full">
                                           <h3 class="font-semibold line-clamp-1">${product.name}</h3>
                                           <div class="flex items-center gap-2 text-xs tracking-tight ">
-                                            <div class="flex items-center gap-2"> <span class="${style} rounded-full w-4 h-4"></span>${item.color}</div> |
+                                            <div class="flex items-center gap-2"> <span class="${style} border-2 rounded-full w-4 h-4"></span>${item.color}</div> |
                                             <div > size <span class="ml-1"> ${item.size}</span> </div> |
                                             <div>  Qty<span class="ml-1"> ${item.quantity}</span> </div>
                                           </div>
@@ -113,7 +113,7 @@ function renderCompleteOrders() {
                                         <div class="flex flex-col gap-2 flex-1 h-full">
                                           <h3 class="font-semibold line-clamp-1">${product.name}</h3>
                                           <div class="flex items-center gap-2 text-xs tracking-tight ">
-                                            <div class="flex items-center gap-2"> <span class="${style} rounded-full w-4 h-4"></span>${item.color}</div> |
+                                            <div class="flex items-center gap-2"> <span class="${style} border-2 rounded-full w-4 h-4"></span>${item.color}</div> |
                                             <div > size <span class="ml-1"> ${item.size}</span> </div> |
                                             <div>  Qty<span class="ml-1"> ${item.quantity}</span> </div>
                                           </div>

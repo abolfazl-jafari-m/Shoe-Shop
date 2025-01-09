@@ -182,7 +182,7 @@ function renderOrders() {
                 <div class="flex flex-col gap-5 flex-1 h-full px-3 py-2">
                     <h3 class="font-semibold text-xl line-clamp-1">${product.name}</h3>
                     <div class="flex items-center gap-2 text-xs tracking-tight ">
-                        <div class="flex items-center gap-2"><span class="${style} rounded-full w-4 h-4"></span>
+                        <div class="flex items-center gap-2"><span class="${style} border-2 rounded-full w-4 h-4"></span>
                             ${item.color}
                         </div>
                         |

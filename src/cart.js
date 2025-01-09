@@ -182,7 +182,6 @@ checkoutBtn.addEventListener("click", async () => {
         loading.classList.add("hidden");
     }
     window.location.href = "/public/checkout.html";
-
 })
 
 
@@ -224,7 +223,7 @@ function render() {
                                                 <div class="flex flex-col flex-1 h-full gap-6 px-1 py-2">
                                                     <h3 class="text-xl px-2.5 pl-0.5 tracking-tight font-semibold line-clamp-1">${product.name}</h3>
                                                     <div class="flex items-center gap-2 text-xs tracking-tight ">
-                                                        <div class="flex items-center gap-2"><span class="w-4 h-4 ${style} rounded-full"></span>
+                                                        <div class="flex items-center gap-2"><span class="w-4 h-4 ${style} border-2 rounded-full"></span>
                                                             ${item.color}
                                                         </div>
                                                         |
