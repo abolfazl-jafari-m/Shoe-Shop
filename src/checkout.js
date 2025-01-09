@@ -186,7 +186,7 @@ function renderOrders() {
                             ${item.color}
                         </div>
                         |
-                        <div> size <span class="ml-1"> ${item.size}</span></div>
+                        <div> size =<span class="ml-1"> ${item.size}</span></div>
                     </div>
                     <div class="flex justify-between items-center w-full ">
                         <span>$ ${item.quantity * product.price}</span>

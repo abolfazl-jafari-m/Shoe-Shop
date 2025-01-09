@@ -69,8 +69,8 @@ function renderActiveOrders() {
                                           <h3 class="font-semibold line-clamp-1">${product.name}</h3>
                                           <div class="flex items-center gap-2 text-xs tracking-tight ">
                                             <div class="flex items-center gap-2"> <span class="${style} border-2 rounded-full w-4 h-4"></span>${item.color}</div> |
-                                            <div > size <span class="ml-1"> ${item.size}</span> </div> |
-                                            <div>  Qty<span class="ml-1"> ${item.quantity}</span> </div>
+                                            <div > size =<span class="ml-1"> ${item.size}</span> </div> |
+                                            <div> Qty =<span class="ml-1"> ${item.quantity}</span> </div>
                                           </div>
                                           <div class="text-xs tracking-tight font-extralight bg-gray-300 rounded-lg text-center w-fit p-2 my-1 capitalize">${item.status} for payment</div>
                                           <div class="flex justify-between items-center w-full">
@@ -114,8 +114,8 @@ function renderCompleteOrders() {
                                           <h3 class="font-semibold line-clamp-1">${product.name}</h3>
                                           <div class="flex items-center gap-2 text-xs tracking-tight ">
                                             <div class="flex items-center gap-2"> <span class="${style} border-2 rounded-full w-4 h-4"></span>${item.color}</div> |
-                                            <div > size <span class="ml-1"> ${item.size}</span> </div> |
-                                            <div>  Qty<span class="ml-1"> ${item.quantity}</span> </div>
+                                            <div > size =<span class="ml-1"> ${item.size}</span> </div> |
+                                            <div> Qty =<span class="ml-1"> ${item.quantity}</span> </div>
                                           </div>
                                           <div class="text-xs tracking-tight font-extralight bg-gray-300 rounded-lg text-center w-fit p-2 my-1 capitalize" >${item.status} </div>
                                           <div class="flex justify-between items-center w-full">

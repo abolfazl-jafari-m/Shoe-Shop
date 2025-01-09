@@ -117,7 +117,7 @@ window.showDeleteModal = (id) => {
                                     ${res.color}
                                 </div>
                                 |
-                                <div> size <span class="ml-1">${res.size}</span></div>
+                                <div> size =<span class="ml-1">${res.size}</span></div>
                             </div>
                             <div class="flex items-center justify-between w-full ">
                                 <span>$ ${(product.price * res.quantity).toFixed(2)}</span>
@@ -222,7 +222,7 @@ function render() {
                                     cartItemsBox.innerHTML += `
                                      <div class="w-full my-2  shadow-gray-500/70 shadow-md rounded-2xl ">
                                         <div class="flex flex-col w-full gap-4 ">
-                                            <div class="relative flex items-center gap-2 px-4 py-2 bg-white rounded-2xl">
+                                            <div class="relative flex items-center gap-2 px-4 py-2 bg-white rounded-3xl">
                                                 <div class="rounded-3xl bg-[#f3f3f3] overflow-hidden flex items-center justify-center p-1">
                                                     <img src="${product.imageURL[0]}" alt="${product.slug}" class="w-28">
                                                 </div>
@@ -233,7 +233,7 @@ function render() {
                                                             ${item.color}
                                                         </div>
                                                         |
-                                                        <div> size <span class="ml-1"> ${item.size}</span></div>
+                                                        <div> size =<span class="ml-1">${item.size}</span></div>
                                                     </div>
                                                     <div class="flex items-center justify-between w-full ">
                                                         <span id="totalPrice" class="font-semibold totals">$ ${(item.quantity * product.price).toFixed(2)}</span>
