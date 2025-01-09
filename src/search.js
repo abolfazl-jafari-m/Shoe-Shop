@@ -112,7 +112,7 @@ window.fillTheInput =(item) =>{
 function renderRecent() {
     recents = JSON.parse(localStorage.getItem('recentSearch')) ?? [];
     resentItem.innerHTML = "";
-    recents.forEach((item, index) => {
+    recents.reverse().forEach((item, index) => {
         resentItem.innerHTML += `
           <div class="flex items-center justify-between text-gray-800/70">
                     <span onclick="fillTheInput('${item}')">${item}</span>
