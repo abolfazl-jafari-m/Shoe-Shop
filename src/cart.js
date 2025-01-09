@@ -46,6 +46,9 @@ window.addQuantity = async (id) => {
                     message("Product Quantity increase", "blue")
                 }
             })
+    }else {
+        loading.classList.replace('flex', "hidden");
+        message("Sorry We cant Provide More , Out of Stock" , "#B92353");
     }
 }
 window.minusQuantity = async (id) => {
@@ -53,7 +56,7 @@ window.minusQuantity = async (id) => {
     loading.classList.add("flex");
     const cartItem = await getCartItemById(id);
     let itemQuantity = +cartItem.quantity;
-    if (itemQuantity > 0) {
+    if (itemQuantity > 1) {
         itemQuantity--;
         updateCartItem(id, {quantity: itemQuantity})
             .then(res => {
@@ -62,6 +65,9 @@ window.minusQuantity = async (id) => {
                     message("Product Quantity decrease", "blue")
                 }
             })
+    }else {
+        loading.classList.replace('flex', "hidden");
+        message("For Delete You Should Use Delete Btn" , "#B92353");
     }
 }
 
@@ -107,7 +113,7 @@ window.showDeleteModal = (id) => {
                         <div class="flex flex-col flex-1 h-full gap-6 px-3 py-2">
                             <h3 class="text-xl font-semibold line-clamp-1">${product.name}</h3>
                             <div class="flex items-center gap-2 text-xs tracking-tight ">
-                                <div class="flex items-center gap-2"><span class="w-4 h-4 ${style} rounded-full"></span>
+                                <div class="flex items-center gap-2"><span class="w-4 h-4 ${style} border-2 rounded-full"></span>
                                     ${res.color}
                                 </div>
                                 |
@@ -221,7 +227,7 @@ function render() {
                                                     <img src="${product.imageURL[0]}" alt="${product.slug}" class="w-28">
                                                 </div>
                                                 <div class="flex flex-col flex-1 h-full gap-6 px-1 py-2">
-                                                    <h3 class="text-xl px-2.5 pl-0.5 tracking-tight font-semibold line-clamp-1">${product.name}</h3>
+                                                    <h3 class="text-xl w-[90%] tracking-tight font-semibold line-clamp-1">${product.name}</h3>
                                                     <div class="flex items-center gap-2 text-xs tracking-tight ">
                                                         <div class="flex items-center gap-2"><span class="w-4 h-4 ${style} border-2 rounded-full"></span>
                                                             ${item.color}
@@ -238,7 +244,7 @@ function render() {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <span class="absolute w-4 top-5 right-4 deleteBtn" onclick="showDeleteModal('${item.id}')"><img src="./assets/Images/delete-o-svgrepo-com.svg"
+                                                <span class="absolute w-4 top-4 right-3.5 deleteBtn" onclick="showDeleteModal('${item.id}')"><img src="./assets/Images/delete-o-svgrepo-com.svg"
                                                                                               alt="delete" class="w-full"></span>
                                             </div>
                                         </div>

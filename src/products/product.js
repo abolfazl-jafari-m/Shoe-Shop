@@ -21,6 +21,7 @@ const backBtn = document.getElementById("backBtn");
 const trackSlides = document.getElementById("trackSlides");
 const viewMore = document.getElementById("viewMore");
 const detail = document.getElementById("details");
+const sizeBox = document.getElementById("sizeBox");
 
 
 const query = new URLSearchParams(window.location.search);
@@ -88,6 +89,7 @@ addToCartBtn.addEventListener("click", (e) => {
 
 wishListBtn.addEventListener("click", () => {
     if (liked) {
+        loading.classList.replace("hidden", "flex");
         removeFromFavorite(liked)
             .then((res) => {
                 if (res) {
@@ -95,8 +97,11 @@ wishListBtn.addEventListener("click", () => {
                     liked = null
                     message("item remove to your wishlist", "#14532D")
                 }
-            })
+            }).finally(()=>{
+                loading.classList.replace("flex" , "hidden");
+        })
     } else {
+        loading.classList.replace("hidden", "flex");
         addToFavorite({
             productId: product.id,
             brand: product.brand
@@ -107,7 +112,9 @@ wishListBtn.addEventListener("click", () => {
                     liked = res.id;
                     message("item added to your wishlist", "#14532D")
                 }
-            })
+            }).finally(()=>{
+            loading.classList.replace("flex" , "hidden");
+        })
     }
 
 })
@@ -177,7 +184,7 @@ function renderProduct() {
             description.innerHTML = res.description;
             res.sizes.forEach(item => {
                 size.innerHTML += `
-                        <div  class="p-2 relative w-8 h-8  flex justify-center items-center overflow-hidden">
+                        <div  class="p-2 relative w-8 h-8  flex justify-center items-center overflow-hidden cursor-pointer">
                             <input type="radio" name="size" value="${item}" class="appearance-none peer w-full h-full absolute top-0 left-0 checked:bg-black border-2 checked:border-black rounded-full text-gray-500 border-gray-600">
                             <span class="text-gray-500 peer-checked:text-white peer-checked:z-10">${item}</span>
                       </div>
@@ -186,14 +193,20 @@ function renderProduct() {
             res.colors.forEach(item => {
                 let [classes, textColor = "text-white"] = color[item]
                 colors.innerHTML += `
-                       <div  class="p-2 relative w-8 h-8  flex justify-center items-center overflow-hidden shrink-0">
+                       <div  class="p-2 relative w-8 h-8  flex justify-center items-center overflow-hidden shrink-0 cursor-pointer">
                             <input type="radio" name="color"  value="${item}" class="appearance-none peer w-full h-full absolute top-0 left-0 ${classes} border-2 rounded-full  transition-all duration-300 ">
                             <span class=" peer-checked:${textColor} peer-checked:z-10 peer-checked:block hidden">&check;</span>
                       </div>
                     `
             })
             if (!res.is_in_inventory) {
-                detail.classList.add("invisible");
+                // detail.classList.add("invisible");
+                for (const item of detail.children) {
+                    for (const elem of item.children) {
+                        elem.classList.add("invisible");
+                    }
+                }
+                sizeBox.classList.remove("invisible");
             }
         }
     }).finally(() => {

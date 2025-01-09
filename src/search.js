@@ -117,7 +117,7 @@ function renderRecent() {
           <div class="flex items-center justify-between text-gray-800/70">
                     <span onclick="fillTheInput('${item}')">${item}</span>
                     <span>
-                    <img src="./assets/Images/Close%20Square.svg" alt="deleteBtn" class="w-6" onclick="deleteRecent(${index})">
+                    <img src="./assets/Images/Close%20Square.svg" alt="deleteBtn" class="w-6 cursor-pointer" onclick="deleteRecent(${index})">
                 </span>
                 </div>
         `

@@ -37,7 +37,7 @@ export async function getUser() {
                 localStorage.removeItem("token");
                 window.location.replace("/public/login.html")
             }
-            throw new Error("user not found")
+            throw new Error("invalid Access Token")
         }
         const result = await response.json();
         return result
