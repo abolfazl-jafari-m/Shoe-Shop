@@ -119,9 +119,13 @@ window.goToSlide = (index) => {
     for (const item of trackers) {
         item.classList.remove("bg-black");
         item.classList.add("bg-gray-400");
+        item.classList.replace("w-9", 'w-2');
+        item.classList.replace("rounded-2xl", "rounded-full");
     }
     slides[index].classList.remove("hidden");
     trackers[index].classList.replace("bg-gray-400", "bg-black");
+    trackers[index].classList.replace("w-2", "w-9");
+    trackers[index].classList.replace("rounded-2xl", "rounded-full");
 }
 viewMore.addEventListener("click", () => {
     if (viewMore.innerText === "View More") {
@@ -159,7 +163,7 @@ function renderProduct() {
                 `
                 if (array.length !== 1) {
                     trackSlides.innerHTML += `
-                    <span class="w-8 h-1 rounded-2xl bg-gray-400 tracker" onclick="goToSlide(${index})"></span>
+                    <span class="w-2 h-2 rounded-full  bg-gray-400 tracker transition-all duration-300" onclick="goToSlide(${index})"></span>
                 `
                 }
 
@@ -168,6 +172,8 @@ function renderProduct() {
             trackers = document.getElementsByClassName("tracker");
             slides[0].classList.remove("hidden");
             trackers[0]?.classList.replace("bg-gray-400", "bg-black");
+            trackers[0]?.classList.replace("w-2", "w-9");
+            trackers[0]?.classList.replace("rounded-2xl", "rounded-full");
             description.innerHTML = res.description;
             res.sizes.forEach(item => {
                 size.innerHTML += `
