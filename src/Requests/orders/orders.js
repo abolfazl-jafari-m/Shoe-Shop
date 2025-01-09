@@ -41,6 +41,11 @@ export async function getOrderItemByFilter(key , value){
             headers : headers
         })
         if (!response.ok){
+            if (response.status === 403){
+                localStorage.removeItem("token");
+                window.location.replace("/public/login.html");
+                throw new Error("Invalid Access Token");
+            }
             throw  new Error("failed to get your Orders")
         }
         const  result = await  response.json();

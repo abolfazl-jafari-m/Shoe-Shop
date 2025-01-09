@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" type="image/x-icon" href="./assets/Images/logo-black.png">
     <title>Search</title>
+    <script>
+        if (!localStorage.getItem("token")){
+            window.location.replace('/public/onboarding.html');
+        }
+    </script>
 </head>
 <body>
 <div class="flex flex-col my-2 gap-2 w-full">

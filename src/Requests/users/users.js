@@ -36,6 +36,7 @@ export async function getUser() {
             if (response.status === 403){
                 localStorage.removeItem("token");
                 window.location.replace("/public/login.html")
+                throw new Error("Invalid Access Token");
             }
             throw new Error("invalid Access Token")
         }

@@ -121,7 +121,7 @@ function render() {
                                         <div class="rounded-xl flex items-center justify-center p-3 bg-[#F3F3F3] ">
                                             <img src="${product.imageURL[0]}" alt="${product.slug}" class="w-full">
                                         </div>
-                                        <div class="flex flex-col gap-1 px-1.5">
+                                        <div class="flex flex-col gap-1 px-1.5 w-full">
                                            <a href="/public/products/product.html?id=${item.id}">
                                         <h4 class="line-clamp-1 text-[#152536] font-bold text-xl tracking-tight">${product.name}.</h4>
                                         </a> 

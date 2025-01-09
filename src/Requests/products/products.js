@@ -10,7 +10,8 @@ export async function getProducts() {
         if (!response.ok) {
             if (response.status === 403){
                 localStorage.removeItem("token");
-                window.location.replace("/public/login.html")
+                window.location.replace("/public/login.html");
+                throw new Error("Invalid Access Token");
             }
             throw new Error("Sorry At the moment Some things Wrong")
         }
@@ -28,6 +29,11 @@ export async function getProductsByFilter(key, value) {
             headers: headers
         })
         if (!response.ok){
+            if (response.status === 403){
+                localStorage.removeItem("token");
+                window.location.replace("/public/login.html");
+                throw new Error("Invalid Access Token");
+            }
             throw new Error("some things wrong at the moment")
         }
         const result = await response.json();
@@ -46,7 +52,8 @@ export async function getProductById(id){
         if (!response.ok){
             if (response.status === 403){
                 localStorage.removeItem("token");
-                window.location.replace("/public/login.html")
+                window.location.replace("/public/login.html");
+                throw new Error("Invalid Access Token");
             }
             throw new Error("Please Try Later")
         }
