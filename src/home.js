@@ -16,7 +16,7 @@ const searchBox = document.getElementById("searchBox")
 const productsBox = document.getElementById("products-box");
 const filtersBtn = document.getElementById("filtersBtn").children;
 
-const time = new Date().getHours()
+const time = new Date().getHours();
 
 search.onfocus = () => {
    window.location.href= "/public/search.html";
